@@ -7,6 +7,10 @@ export default {
   ],
   theme: {
     extend: {
+      boxShadow: {
+        'glass-card': '0 0 55px rgba(74, 38, 188, 0.25)',
+        'glass-soft': '0 0 18px rgba(100, 100, 120, 0.10)',  
+      },
       colors: {
         'brand-dark': '#0B0B0B',
         'brand-purple': '#CEC4EF',

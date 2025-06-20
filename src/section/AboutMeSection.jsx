@@ -2,6 +2,23 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
 
+import CssIcon from '../assets/skill_icons/CSS3.svg?react';
+import HtmlIcon from '../assets/skill_icons/html5.svg?react';
+import JsIcon from '../assets/skill_icons/JavaScript.svg?react';
+import JqueryIcon from '../assets/skill_icons/jQuery.svg?react';
+import ReactIcon from '../assets/skill_icons/React.svg?react';
+import TailwindIcon from '../assets/skill_icons/Tailwind.svg?react';
+import JavaIcon from '../assets/skill_icons/Java.svg?react';
+import SpringIcon from '../assets/skill_icons/Spring_Boot.svg?react';
+import MyBatisIcon from '../assets/skill_icons/MyBatis.svg?react';
+import OracleIcon from '../assets/skill_icons/Oracle.svg?react';
+import MySqlIcon from '../assets/skill_icons/MySQL.svg?react';
+import NodejsIcon from '../assets/skill_icons/NodeJS.svg?react';
+import FigmaIcon from '../assets/skill_icons/Figma.svg?react';
+import GithubIcon from '../assets/skill_icons/GitHub.svg?react';
+import NotionIcon from '../assets/skill_icons/Notion.svg?react';
+import DiscordIcon from '../assets/skill_icons/Discord.svg?react';
+
 // 데이터: Q&A, 스킬, 키워드, 아이콘 매핑
 const interviews = [
   {
@@ -25,10 +42,24 @@ const skills = [
 ];
 const keywords = ['꾸준한성장', '실행력', '피드백환영', '열정가득'];
 const skillIcons = {
-  CSS3: '💠', HTML5: '📄', JavaScript: '🟡', jQuery: '🔵', React: '⚛️', 'Tailwind CSS': '🌊',
-  Java: '☕', 'Spring Boot': '🌱', MyBatis: '📄', Oracle: '🗄️', MySQL: '🐬', Servlet: '📜', JSP: '☕',
-  'Node.js': '🟢', Figma: '🎨', GitHub: '🐙', Notion: '📝', Discord: '💬',
+  'CSS3': <CssIcon />,
+  'HTML5': <HtmlIcon />,
+  'JavaScript': <JsIcon />,
+  'jQuery': <JqueryIcon />,
+  'React': <ReactIcon />,
+  'Tailwind CSS': <TailwindIcon />,
+  'Java': <JavaIcon />,
+  'Spring Boot': <SpringIcon />,
+  'MyBatis': <MyBatisIcon />,
+  'Oracle': <OracleIcon />,
+  'MySQL': <MySqlIcon />,
+  'Node.js': <NodejsIcon />,
+  'Figma': <FigmaIcon />,
+  'GitHub': <GithubIcon />,
+  'Notion': <NotionIcon />,
+  'Discord': <DiscordIcon />,
 };
+
 
 // ▼▼▼▼▼ 팀원 리뷰 데이터를 배열로 관리합니다. ▼▼▼▼▼
 const reviews = [
@@ -179,18 +210,19 @@ const AboutMeSection = () => {
             </div>
 
             {/* Skills & Tools */}
-            <div>
+ <div>
               <h2 className="text-[1.875rem] font-semibold text-brand-dark mb-[1.875rem]">Skills & Tools</h2>
               <div className="space-y-6">
-                {skills.map((skill, index) => (
-                  <div key={index} className="flex items-center">
-                    <p className="flex-shrink-0 text-[1.375rem] font-medium text-brand-dark px-[1.625rem] pt-[0.3rem] pb-[0.4rem] bg-skills-bg rounded-full">
-                        {skill.category}
-                    </p>
+                {skills.map((skill) => (
+                  <div key={skill.category} className="flex items-center">
+                    <p className="flex-shrink-0 text-[1.375rem] font-medium text-brand-dark px-[1.625rem] pt-[0.3rem] pb-[0.4rem] bg-skills-bg rounded-full">{skill.category}</p>
                     <div className="flex flex-wrap gap-[0.625rem] ml-4">
-                      {skill.tools.map((tool, i) => (
-                        <div key={i} className="flex items-center gap-1 px-[0.9375rem] py-[0.425rem] bg-tool-bg rounded-full">
-                          <span className="text-xl">{skillIcons[tool] || '🔹'}</span>
+                      {skill.tools.map((tool) => (
+                        <div key={tool} className="flex items-center gap-1 px-[0.9375rem] py-[0.625rem] bg-tool-bg rounded-full">
+                          {/* 3. ▼▼▼▼▼ 아이콘이 있을 때만 렌더링하고, 없으면 아무것도 표시하지 않습니다. ▼▼▼▼▼ */}
+                          {skillIcons[tool] && (
+                            <span className="w-5 h-5 flex items-center justify-center text-brand-dark">{skillIcons[tool]}</span>
+                          )}
                           <span className="text-base font-medium text-brand-dark">{tool}</span>
                         </div>
                       ))}
@@ -200,6 +232,7 @@ const AboutMeSection = () => {
               </div>
             </div>
           </div>
+
   
           {/* 오른쪽 컬럼 */}
           <div className="flex flex-col space-y-[1.375rem]">
@@ -246,14 +279,11 @@ const AboutMeSection = () => {
         isOpen={isModalOpen}
         onRequestClose={closeModal}
         contentLabel="팀원 리뷰"
-        // 팝업 뒷배경은 그대로 유지
         overlayClassName="fixed inset-0 bg-black/70 flex items-center justify-center z-40"
-        // 1. 팝업창 자체의 배경색을 #E9EDF5로 변경
-        className="relative w-full h-screen bg-[#E9EDF5] text-brand-dark shadow-xl p-8 md:p-12"
+        className="relative w-full h-screen bg-[#E9EDF5] text-brand-dark shadow-xl py-24 px-32"
       >
         <button 
           onClick={closeModal} 
-          // 닫기 버튼 색상도 어두운 색으로 변경
           className="absolute top-6 right-6 text-gray-600 hover:text-black transition-colors z-10"
         >
           <CloseIcon />
@@ -263,7 +293,6 @@ const AboutMeSection = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {reviews.map((review, index) => (
-              // 2. 각 리뷰 카드의 배경을 60% 투명도의 흰색으로 변경
               <div key={index} className="bg-white/60 p-6 rounded-lg flex flex-col justify-between">
                 <p className="leading-relaxed">“ {review.content} ”</p>
                 <p className="text-right text-gray-500 mt-4">- {review.author}</p>
