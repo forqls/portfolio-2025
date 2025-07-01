@@ -25,6 +25,20 @@ const ProjectSection = () => {
     const allProjects = projects.filter(p => activeFilter === 'All' || p.category === activeFilter);
     setFilteredProjects(allProjects);
   }, [activeFilter]);
+  
+  useEffect(() => {
+    // selectedProject에 데이터가 있으면(모달이 열리면) true
+    if (selectedProject) {
+      document.body.style.overflow = 'hidden'; // body의 스크롤을 막습니다.
+    } else {
+      document.body.style.overflow = 'unset'; // body의 스크롤을 다시 허용합니다.
+    }
+
+    // 컴포넌트가 사라질 때 원래대로 돌려놓는 정리(cleanup) 함수
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [selectedProject]);
 
   const filters = ['All', 'Team', 'Single'];
 
@@ -67,16 +81,24 @@ const ProjectSection = () => {
       </div>
 
       {/* 프로젝트 상세 보기 모달 */}
-      <Modal
+       <Modal
         isOpen={!!selectedProject}
         onRequestClose={() => setSelectedProject(null)}
         contentLabel="프로젝트 상세"
+        // 오버레이 스타일은 그대로 유지
         overlayClassName="fixed inset-0 bg-black/70 flex items-center justify-center z-40 p-4"
-        className="relative w-full max-w-4xl h-[90vh] bg-white rounded-2xl shadow-xl p-8 md:p-12"
+        // 모달창 자체의 스타일도 그대로 유지
+        className="relative w-full max-w-[80%] h-[90vh] bg-white rounded-2xl shadow-xl p-8 md:p-12"
       >
         {selectedProject && (
-          <>
-            <button onClick={() => setSelectedProject(null)} className="absolute top-6 right-6 text-gray-400 hover:text-black transition-colors z-10">
+          // <> 태그를 div로 바꾸고 relative를 적용하여 버튼 위치의 새로운 기준점으로 만듭니다.
+          <div className="relative w-full h-full">
+            {/* ▼▼▼▼▼ 닫기 버튼의 className을 수정합니다. ▼▼▼▼▼ */}
+            <button 
+              onClick={() => setSelectedProject(null)} 
+              // fixed로 화면 기준, top-6(1.5rem), right-6(1.5rem)으로 위치 지정
+              className="fixed top-6 right-6 text-white hover:text-gray-300 transition-colors z-50"
+            >
               <CloseIcon />
             </button>
             <div className="h-full overflow-y-auto pr-4">
@@ -91,7 +113,7 @@ const ProjectSection = () => {
               </div>
               <p className="text-gray-700 leading-relaxed">{selectedProject.description}</p>
             </div>
-          </>
+          </div>
         )}
       </Modal>
     </section>
