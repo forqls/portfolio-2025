@@ -55,3 +55,7 @@
 .ReactModal__Overlay--before-close {
   opacity: 0;
 }
+
+.list-lower-alpha {
+  list-style-type: lower-alpha;
+}

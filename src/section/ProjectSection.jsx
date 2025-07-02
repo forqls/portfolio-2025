@@ -50,136 +50,394 @@ const projects = [
     description: '디자인, 템플릿, 폰트, 아이콘 등 다양한 디지털 자산을 다운로드할 수 있는 크리에이티브 리소스 플랫폼입니다.',
     period: '2024.01 - 2024.02',
     headcount: '4인 (풀스택 개발)',
-    gradient: { from: '#1F1F2C', to: '#383270' }, // VPLAY 전용 그라데이션
+    gradient: { from: '#1F1F2C', to: '#383270' },
     tags: ['팀', '메인'],
     category: 'Team',
     githubUrl: 'https://github.com/forqls/vplay',
     deployUrl: '#',
     myRole: [
-      'ERD 설계 및 Oracle DB 구축 (개발)',
-      'Spring Security와 JWT를 활용한 인증/인가 시스템 구현',
-      '제작의뢰문의 기능 등 RESTful API 설계 및 개발',
-      'Figma를 활용한 UI/UX 기획 및 디자인',
+      {
+        subtitle: 'ERD 설계 및 Oracle DB 구축',
+        details: [ '서비스의 핵심 기능(회원, 제작의뢰, 프로젝트)에 대한 데이터 모델링 및 관계 설정', '데이터 무결성과 정규화를 고려한 데이터베이스 설계' ]
+      },
+      {
+        subtitle: 'Spring Security 기반 인증/인가 시스템 구현',
+        details: [ 'JWT(JSON Web Token)와 Bcrypt 암호화를 적용한 회원가입/로그인 API 개발', '관리자(Admin)와 일반사용자(User) 권한을 분리한 역할 기반 접근 제어(RBAC) 적용' ]
+      },
     ],
-    techStack: { backend: 'Spring Boot, Oracle, PostgreSQL', frontend: 'React, Tailwind CSS' },
-    problemSolving: 'Oracle DB 환경을 클라우드 배포를 위해 PostgreSQL로 마이그레이션하며 DBMS간의 SQL 문법 차이를 해결하고 안정성을 확보했습니다.',
+    techStack: [
+      {
+        category: 'Backend',
+        tools: 'Java, Spring Boot, Spring MVC, MyBatis'
+      },
+      {
+        category: 'Frontend',
+        tools: 'HTML5, CSS3, JavaScript, jQuery, Summernote, Bootstrap, WaveSurfer.js'
+      },
+      {
+        category: 'Database',
+        tools: 'Oracle (개발), PostgreSQL (배포)'
+      },
+      {
+        category: 'Infra/Etc',
+        tools: 'Cloudflare R2, REST API, Ajax, Kakao/Google OAuth 2.0, JavaMail Sender'
+      }
+    ],
+    keyFeatures: [
+      {
+        subtitle: 'RESTful API 기반의 실시간 제작의뢰 문의 기능',
+        description: '사용자들이 크리에이터에게 영상/음악 등의 제작을 의뢰하고 실시간으로 소통할 수 있는 문의 기능을 개발했습니다.',
+        process: [
+          'REST API 설계: 설계 단계부터 RESTful 원칙에 따라, 문의(inquiry), 답변(answer) 등을 명사 형태의 URI로 명확하게 설계했습니다.',
+          'CORS(Cross-Origin Resource Sharing) 정책을 설정하여, 다른 도메인에서 실행되는 프론트엔드 애플리케이션이 백엔드 API에 안전하게 접근할 수 있도록 허용했습니다.',
+          '데이터 처리: 사용자가 문의를 등록하면, MyBatis를 통해 해당 데이터를 DB에 저장하고, 생성된 문의 ID를 즉시 프론트엔드로 반환하여 사용자가 방금 작성한 글을 바로 확인할 수 있도록 구현했습니다.'
+        ]
+         },
+    ],
+    problemSolving: [
+      {
+        subtitle: '클라우드 플랫폼으로 서버 이전 및 배포 오류 해결',
+        problem: '학원에서 제공한 Oracle DB는 약정된 4개월 후에 종료될 예정이었습니다. 프로젝트를 계속 운영하기 위해 개인 서버로 DB를 이전하고, Render 플랫폼에 배포하는 과정에서 Database Connection Error가 발생했습니다.',
+        solution: [
+          '로그 분석: 가장 먼저 Render의 배포 로그를 확인하여, 원인이 Connection Timeout임을 특정했습니다.',
+          '원인 추적: 로컬 환경과 달리, 클라우드 플랫폼의 네트워크 방화벽이 외부 DB로의 접속을 차단하고 있거나, 환경 변수 설정이 잘못되었을 가능성을 중심으로 문제를 추적했습니다.',
+          '단계적 해결: Render 공식 문서를 참고하여, 새로 구축한 DB 서버의 IP를 방화벽 허용 목록에 추가했습니다. 그다음, 로컬의 application.properties에 있던 DB 접속 정보를 Render의 환경 변수 설정에 정확히 입력하여 문제를 해결했습니다.',
+        ],
+        learned: 'DB 이전부터 배포까지 직접 경험하며, 로컬과 실제 서버 환경의 가장 큰 차이점인 네트워크와 환경 변수 관리의 중요성을 몸으로 깨달았습니다. 이제는 어떤 환경에서든 로그를 기반으로 체계적인 문제 해결을 할 수 있다는 자신감을 얻었습니다.'
+      }
+      // ... (다른 문제 해결 경험이 있다면 여기에 추가) ...
+    ],
     notionUrl: '#'
   },
+  // --- 다른 프로젝트들도 이 구조에 맞춰서 데이터를 꼭 채워줘야 해! ---
   {
     id: 2,
     thumbnail: '/harmony_thumbnail.jpg',
     title: '하모니',
-    description: '직장 후원 대상 시스템, 명세한 목표 금액 설정과 기부 성향을 통한 기부 플랫폼입니다.',
-    period: '2023.11 - 2023.12',
-    headcount: '5인 (팀 프로젝트)',
-    gradient: { from: '#4E65FF', to: '#7A3DFF' }, // 하모니 전용 그라데이션
-    tags: ['팀', '사이드'],
+    description: '디자인, 템플릿, 폰트, 아이콘 등 다양한 디지털 자산을 다운로드할 수 있는 크리에이티브 리소스 플랫폼입니다.',
+    period: '2024.01 - 2024.02',
+    headcount: '4인 (풀스택 개발)',
+    gradient: { from: '#1F1F2C', to: '#383270' },
+    tags: ['팀', '메인'],
     category: 'Team',
-    githubUrl: '#',
+    githubUrl: 'https://github.com/forqls/vplay',
     deployUrl: '#',
-    myRole: [ '기부금 결제 연동 API 개발 (PG사)', '사용자별 기부 성향 분석 로직 구현' ],
-    techStack: { backend: 'Node.js, Express', frontend: 'Vue.js, SCSS' },
-    problemSolving: '결제 API 연동 시 발생할 수 있는 네트워크 오류에 대비하여, 재시도 로직과 에러 로깅 시스템을 구축하여 안정성을 높였습니다.',
+    myRole: [
+      {
+        subtitle: 'ERD 설계 및 Oracle DB 구축',
+        details: [ '서비스의 핵심 기능(회원, 제작의뢰, 프로젝트)에 대한 데이터 모델링 및 관계 설정', '데이터 무결성과 정규화를 고려한 데이터베이스 설계' ]
+      },
+      {
+        subtitle: 'Spring Security 기반 인증/인가 시스템 구현',
+        details: [ 'JWT(JSON Web Token)와 Bcrypt 암호화를 적용한 회원가입/로그인 API 개발', '관리자(Admin)와 일반사용자(User) 권한을 분리한 역할 기반 접근 제어(RBAC) 적용' ]
+      },
+    ],
+    techStack: [
+      {
+        category: 'Backend',
+        tools: 'Java, Spring Boot, Spring MVC, MyBatis'
+      },
+      {
+        category: 'Frontend',
+        tools: 'HTML5, CSS3, JavaScript, jQuery, Summernote, Bootstrap, WaveSurfer.js'
+      },
+      {
+        category: 'Database',
+        tools: 'Oracle (개발), PostgreSQL (배포)'
+      },
+      {
+        category: 'Infra/Etc',
+        tools: 'Cloudflare R2, REST API, Ajax, Kakao/Google OAuth 2.0, JavaMail Sender'
+      }
+    ],
+    keyFeatures: [
+      {
+        subtitle: 'RESTful API 기반의 실시간 제작의뢰 문의 기능',
+        description: '사용자들이 크리에이터에게 영상/음악 등의 제작을 의뢰하고 실시간으로 소통할 수 있는 문의 기능을 개발했습니다.',
+        process: [
+          'REST API 설계: 설계 단계부터 RESTful 원칙에 따라, 문의(inquiry), 답변(answer) 등을 명사 형태의 URI로 명확하게 설계했습니다.',
+          'CORS(Cross-Origin Resource Sharing) 정책을 설정하여, 다른 도메인에서 실행되는 프론트엔드 애플리케이션이 백엔드 API에 안전하게 접근할 수 있도록 허용했습니다.',
+          '데이터 처리: 사용자가 문의를 등록하면, MyBatis를 통해 해당 데이터를 DB에 저장하고, 생성된 문의 ID를 즉시 프론트엔드로 반환하여 사용자가 방금 작성한 글을 바로 확인할 수 있도록 구현했습니다.'
+        ]
+         },
+    ],
+    problemSolving: [
+      {
+        subtitle: '클라우드 플랫폼으로 서버 이전 및 배포 오류 해결',
+        problem: '학원에서 제공한 Oracle DB는 약정된 4개월 후에 종료될 예정이었습니다. 프로젝트를 계속 운영하기 위해 개인 서버로 DB를 이전하고, Render 플랫폼에 배포하는 과정에서 Database Connection Error가 발생했습니다.',
+        solution: [
+          '로그 분석: 가장 먼저 Render의 배포 로그를 확인하여, 원인이 Connection Timeout임을 특정했습니다.',
+          '원인 추적: 로컬 환경과 달리, 클라우드 플랫폼의 네트워크 방화벽이 외부 DB로의 접속을 차단하고 있거나, 환경 변수 설정이 잘못되었을 가능성을 중심으로 문제를 추적했습니다.',
+          '단계적 해결: Render 공식 문서를 참고하여, 새로 구축한 DB 서버의 IP를 방화벽 허용 목록에 추가했습니다. 그다음, 로컬의 application.properties에 있던 DB 접속 정보를 Render의 환경 변수 설정에 정확히 입력하여 문제를 해결했습니다.',
+        ],
+        learned: 'DB 이전부터 배포까지 직접 경험하며, 로컬과 실제 서버 환경의 가장 큰 차이점인 네트워크와 환경 변수 관리의 중요성을 몸으로 깨달았습니다. 이제는 어떤 환경에서든 로그를 기반으로 체계적인 문제 해결을 할 수 있다는 자신감을 얻었습니다.'
+      }
+      // ... (다른 문제 해결 경험이 있다면 여기에 추가) ...
+    ],
     notionUrl: '#'
   },
   {
     id: 3,
     thumbnail: '/dealon_thumbnail.jpg',
     title: '딜온',
-    description: '기부 목표 설정과 성향 분석을 통한 기부 플랫폼입니다.',
-    period: '2025.03.14 - 2025.03.26',
-    headcount: '9인 (풀스택 개발)',
-    gradient: { from: '#4E65FF', to: '#7A3DFF' },
-    tags: ['팀', '사이드'],
+    description: '디자인, 템플릿, 폰트, 아이콘 등 다양한 디지털 자산을 다운로드할 수 있는 크리에이티브 리소스 플랫폼입니다.',
+    period: '2024.01 - 2024.02',
+    headcount: '4인 (풀스택 개발)',
+    gradient: { from: '#1F1F2C', to: '#383270' },
+    tags: ['팀', '메인'],
     category: 'Team',
-    githubUrl: '#',
+    githubUrl: 'https://github.com/forqls/vplay',
     deployUrl: '#',
-    // --- 👇 '하모니' 프로젝트의 상세 내용 ---
     myRole: [
-      '기부금 결제 연동 API 개발 (PG사)',
-      '사용자별 기부 성향 분석 로직 구현',
-      // ... 하모니 프로젝트에서 한 역할들
+      {
+        subtitle: 'ERD 설계 및 Oracle DB 구축',
+        details: [ '서비스의 핵심 기능(회원, 제작의뢰, 프로젝트)에 대한 데이터 모델링 및 관계 설정', '데이터 무결성과 정규화를 고려한 데이터베이스 설계' ]
+      },
+      {
+        subtitle: 'Spring Security 기반 인증/인가 시스템 구현',
+        details: [ 'JWT(JSON Web Token)와 Bcrypt 암호화를 적용한 회원가입/로그인 API 개발', '관리자(Admin)와 일반사용자(User) 권한을 분리한 역할 기반 접근 제어(RBAC) 적용' ]
+      },
     ],
-    techStack: {
-      backend: 'Node.js, Express',
-      frontend: 'Vue.js, SCSS'
-    },
-    problemSolving: '결제 API 연동 시 발생할 수 있는 네트워크 오류에 대비하여, 재시도 로직과 에러 로깅 시스템을 구축하여 안정성을 높였습니다.',
+    techStack: [
+      {
+        category: 'Backend',
+        tools: 'Java, Spring Boot, Spring MVC, MyBatis'
+      },
+      {
+        category: 'Frontend',
+        tools: 'HTML5, CSS3, JavaScript, jQuery, Summernote, Bootstrap, WaveSurfer.js'
+      },
+      {
+        category: 'Database',
+        tools: 'Oracle (개발), PostgreSQL (배포)'
+      },
+      {
+        category: 'Infra/Etc',
+        tools: 'Cloudflare R2, REST API, Ajax, Kakao/Google OAuth 2.0, JavaMail Sender'
+      }
+    ],
+    keyFeatures: [
+      {
+        subtitle: 'RESTful API 기반의 실시간 제작의뢰 문의 기능',
+        description: '사용자들이 크리에이터에게 영상/음악 등의 제작을 의뢰하고 실시간으로 소통할 수 있는 문의 기능을 개발했습니다.',
+        process: [
+          'REST API 설계: 설계 단계부터 RESTful 원칙에 따라, 문의(inquiry), 답변(answer) 등을 명사 형태의 URI로 명확하게 설계했습니다.',
+          'CORS(Cross-Origin Resource Sharing) 정책을 설정하여, 다른 도메인에서 실행되는 프론트엔드 애플리케이션이 백엔드 API에 안전하게 접근할 수 있도록 허용했습니다.',
+          '데이터 처리: 사용자가 문의를 등록하면, MyBatis를 통해 해당 데이터를 DB에 저장하고, 생성된 문의 ID를 즉시 프론트엔드로 반환하여 사용자가 방금 작성한 글을 바로 확인할 수 있도록 구현했습니다.'
+        ]
+         },
+    ],
+    problemSolving: [
+      {
+        subtitle: '클라우드 플랫폼으로 서버 이전 및 배포 오류 해결',
+        problem: '학원에서 제공한 Oracle DB는 약정된 4개월 후에 종료될 예정이었습니다. 프로젝트를 계속 운영하기 위해 개인 서버로 DB를 이전하고, Render 플랫폼에 배포하는 과정에서 Database Connection Error가 발생했습니다.',
+        solution: [
+          '로그 분석: 가장 먼저 Render의 배포 로그를 확인하여, 원인이 Connection Timeout임을 특정했습니다.',
+          '원인 추적: 로컬 환경과 달리, 클라우드 플랫폼의 네트워크 방화벽이 외부 DB로의 접속을 차단하고 있거나, 환경 변수 설정이 잘못되었을 가능성을 중심으로 문제를 추적했습니다.',
+          '단계적 해결: Render 공식 문서를 참고하여, 새로 구축한 DB 서버의 IP를 방화벽 허용 목록에 추가했습니다. 그다음, 로컬의 application.properties에 있던 DB 접속 정보를 Render의 환경 변수 설정에 정확히 입력하여 문제를 해결했습니다.',
+        ],
+        learned: 'DB 이전부터 배포까지 직접 경험하며, 로컬과 실제 서버 환경의 가장 큰 차이점인 네트워크와 환경 변수 관리의 중요성을 몸으로 깨달았습니다. 이제는 어떤 환경에서든 로그를 기반으로 체계적인 문제 해결을 할 수 있다는 자신감을 얻었습니다.'
+      }
+      // ... (다른 문제 해결 경험이 있다면 여기에 추가) ...
+    ],
     notionUrl: '#'
   },
   {
     id: 4,
     thumbnail: '/portfolio_thumbnail.jpg',
     title: '포트폴리오_2025',
-    description: '기부 목표 설정과 성향 분석을 통한 기부 플랫폼입니다.',
-    period: '2025.03.14 - 2025.03.26',
-    headcount: '9인 (풀스택 개발)',
-    gradient: { from: '#4E65FF', to: '#7A3DFF' },
-    tags: ['팀', '사이드'],
+    description: '디자인, 템플릿, 폰트, 아이콘 등 다양한 디지털 자산을 다운로드할 수 있는 크리에이티브 리소스 플랫폼입니다.',
+    period: '2024.01 - 2024.02',
+    headcount: '4인 (풀스택 개발)',
+    gradient: { from: '#1F1F2C', to: '#383270' },
+    tags: ['팀', '메인'],
     category: 'Team',
-    githubUrl: '#',
+    githubUrl: 'https://github.com/forqls/vplay',
     deployUrl: '#',
-    // --- 👇 '하모니' 프로젝트의 상세 내용 ---
     myRole: [
-      '기부금 결제 연동 API 개발 (PG사)',
-      '사용자별 기부 성향 분석 로직 구현',
-      // ... 하모니 프로젝트에서 한 역할들
+      {
+        subtitle: 'ERD 설계 및 Oracle DB 구축',
+        details: [ '서비스의 핵심 기능(회원, 제작의뢰, 프로젝트)에 대한 데이터 모델링 및 관계 설정', '데이터 무결성과 정규화를 고려한 데이터베이스 설계' ]
+      },
+      {
+        subtitle: 'Spring Security 기반 인증/인가 시스템 구현',
+        details: [ 'JWT(JSON Web Token)와 Bcrypt 암호화를 적용한 회원가입/로그인 API 개발', '관리자(Admin)와 일반사용자(User) 권한을 분리한 역할 기반 접근 제어(RBAC) 적용' ]
+      },
     ],
-    techStack: {
-      backend: 'Node.js, Express',
-      frontend: 'Vue.js, SCSS'
-    },
-    problemSolving: '결제 API 연동 시 발생할 수 있는 네트워크 오류에 대비하여, 재시도 로직과 에러 로깅 시스템을 구축하여 안정성을 높였습니다.',
+    techStack: [
+      {
+        category: 'Backend',
+        tools: 'Java, Spring Boot, Spring MVC, MyBatis'
+      },
+      {
+        category: 'Frontend',
+        tools: 'HTML5, CSS3, JavaScript, jQuery, Summernote, Bootstrap, WaveSurfer.js'
+      },
+      {
+        category: 'Database',
+        tools: 'Oracle (개발), PostgreSQL (배포)'
+      },
+      {
+        category: 'Infra/Etc',
+        tools: 'Cloudflare R2, REST API, Ajax, Kakao/Google OAuth 2.0, JavaMail Sender'
+      }
+    ],
+    keyFeatures: [
+      {
+        subtitle: 'RESTful API 기반의 실시간 제작의뢰 문의 기능',
+        description: '사용자들이 크리에이터에게 영상/음악 등의 제작을 의뢰하고 실시간으로 소통할 수 있는 문의 기능을 개발했습니다.',
+        process: [
+          'REST API 설계: 설계 단계부터 RESTful 원칙에 따라, 문의(inquiry), 답변(answer) 등을 명사 형태의 URI로 명확하게 설계했습니다.',
+          'CORS(Cross-Origin Resource Sharing) 정책을 설정하여, 다른 도메인에서 실행되는 프론트엔드 애플리케이션이 백엔드 API에 안전하게 접근할 수 있도록 허용했습니다.',
+          '데이터 처리: 사용자가 문의를 등록하면, MyBatis를 통해 해당 데이터를 DB에 저장하고, 생성된 문의 ID를 즉시 프론트엔드로 반환하여 사용자가 방금 작성한 글을 바로 확인할 수 있도록 구현했습니다.'
+        ]
+         },
+    ],
+    problemSolving: [
+      {
+        subtitle: '클라우드 플랫폼으로 서버 이전 및 배포 오류 해결',
+        problem: '학원에서 제공한 Oracle DB는 약정된 4개월 후에 종료될 예정이었습니다. 프로젝트를 계속 운영하기 위해 개인 서버로 DB를 이전하고, Render 플랫폼에 배포하는 과정에서 Database Connection Error가 발생했습니다.',
+        solution: [
+          '로그 분석: 가장 먼저 Render의 배포 로그를 확인하여, 원인이 Connection Timeout임을 특정했습니다.',
+          '원인 추적: 로컬 환경과 달리, 클라우드 플랫폼의 네트워크 방화벽이 외부 DB로의 접속을 차단하고 있거나, 환경 변수 설정이 잘못되었을 가능성을 중심으로 문제를 추적했습니다.',
+          '단계적 해결: Render 공식 문서를 참고하여, 새로 구축한 DB 서버의 IP를 방화벽 허용 목록에 추가했습니다. 그다음, 로컬의 application.properties에 있던 DB 접속 정보를 Render의 환경 변수 설정에 정확히 입력하여 문제를 해결했습니다.',
+        ],
+        learned: 'DB 이전부터 배포까지 직접 경험하며, 로컬과 실제 서버 환경의 가장 큰 차이점인 네트워크와 환경 변수 관리의 중요성을 몸으로 깨달았습니다. 이제는 어떤 환경에서든 로그를 기반으로 체계적인 문제 해결을 할 수 있다는 자신감을 얻었습니다.'
+      }
+      // ... (다른 문제 해결 경험이 있다면 여기에 추가) ...
+    ],
     notionUrl: '#'
   },
   {
     id: 5,
     thumbnail: '/naturelica_thumbnail.jpg',
     title: '네이쳐리카',
-    description: '기부 목표 설정과 성향 분석을 통한 기부 플랫폼입니다.',
-    period: '2025.03.14 - 2025.03.26',
-    headcount: '9인 (풀스택 개발)',
-    gradient: { from: '#4E65FF', to: '#7A3DFF' },
-    tags: ['팀', '사이드'],
+    description: '디자인, 템플릿, 폰트, 아이콘 등 다양한 디지털 자산을 다운로드할 수 있는 크리에이티브 리소스 플랫폼입니다.',
+    period: '2024.01 - 2024.02',
+    headcount: '4인 (풀스택 개발)',
+    gradient: { from: '#1F1F2C', to: '#383270' },
+    tags: ['팀', '메인'],
     category: 'Team',
-    githubUrl: '#',
+    githubUrl: 'https://github.com/forqls/vplay',
     deployUrl: '#',
-    // --- 👇 '하모니' 프로젝트의 상세 내용 ---
     myRole: [
-      '기부금 결제 연동 API 개발 (PG사)',
-      '사용자별 기부 성향 분석 로직 구현',
-      // ... 하모니 프로젝트에서 한 역할들
+      {
+        subtitle: 'ERD 설계 및 Oracle DB 구축',
+        details: [ '서비스의 핵심 기능(회원, 제작의뢰, 프로젝트)에 대한 데이터 모델링 및 관계 설정', '데이터 무결성과 정규화를 고려한 데이터베이스 설계' ]
+      },
+      {
+        subtitle: 'Spring Security 기반 인증/인가 시스템 구현',
+        details: [ 'JWT(JSON Web Token)와 Bcrypt 암호화를 적용한 회원가입/로그인 API 개발', '관리자(Admin)와 일반사용자(User) 권한을 분리한 역할 기반 접근 제어(RBAC) 적용' ]
+      },
     ],
-    techStack: {
-      backend: 'Node.js, Express',
-      frontend: 'Vue.js, SCSS'
-    },
-    problemSolving: '결제 API 연동 시 발생할 수 있는 네트워크 오류에 대비하여, 재시도 로직과 에러 로깅 시스템을 구축하여 안정성을 높였습니다.',
+    techStack: [
+      {
+        category: 'Backend',
+        tools: 'Java, Spring Boot, Spring MVC, MyBatis'
+      },
+      {
+        category: 'Frontend',
+        tools: 'HTML5, CSS3, JavaScript, jQuery, Summernote, Bootstrap, WaveSurfer.js'
+      },
+      {
+        category: 'Database',
+        tools: 'Oracle (개발), PostgreSQL (배포)'
+      },
+      {
+        category: 'Infra/Etc',
+        tools: 'Cloudflare R2, REST API, Ajax, Kakao/Google OAuth 2.0, JavaMail Sender'
+      }
+    ],
+    keyFeatures: [
+      {
+        subtitle: 'RESTful API 기반의 실시간 제작의뢰 문의 기능',
+        description: '사용자들이 크리에이터에게 영상/음악 등의 제작을 의뢰하고 실시간으로 소통할 수 있는 문의 기능을 개발했습니다.',
+        process: [
+          'REST API 설계: 설계 단계부터 RESTful 원칙에 따라, 문의(inquiry), 답변(answer) 등을 명사 형태의 URI로 명확하게 설계했습니다.',
+          'CORS(Cross-Origin Resource Sharing) 정책을 설정하여, 다른 도메인에서 실행되는 프론트엔드 애플리케이션이 백엔드 API에 안전하게 접근할 수 있도록 허용했습니다.',
+          '데이터 처리: 사용자가 문의를 등록하면, MyBatis를 통해 해당 데이터를 DB에 저장하고, 생성된 문의 ID를 즉시 프론트엔드로 반환하여 사용자가 방금 작성한 글을 바로 확인할 수 있도록 구현했습니다.'
+        ]
+         },
+    ],
+    problemSolving: [
+      {
+        subtitle: '클라우드 플랫폼으로 서버 이전 및 배포 오류 해결',
+        problem: '학원에서 제공한 Oracle DB는 약정된 4개월 후에 종료될 예정이었습니다. 프로젝트를 계속 운영하기 위해 개인 서버로 DB를 이전하고, Render 플랫폼에 배포하는 과정에서 Database Connection Error가 발생했습니다.',
+        solution: [
+          '로그 분석: 가장 먼저 Render의 배포 로그를 확인하여, 원인이 Connection Timeout임을 특정했습니다.',
+          '원인 추적: 로컬 환경과 달리, 클라우드 플랫폼의 네트워크 방화벽이 외부 DB로의 접속을 차단하고 있거나, 환경 변수 설정이 잘못되었을 가능성을 중심으로 문제를 추적했습니다.',
+          '단계적 해결: Render 공식 문서를 참고하여, 새로 구축한 DB 서버의 IP를 방화벽 허용 목록에 추가했습니다. 그다음, 로컬의 application.properties에 있던 DB 접속 정보를 Render의 환경 변수 설정에 정확히 입력하여 문제를 해결했습니다.',
+        ],
+        learned: 'DB 이전부터 배포까지 직접 경험하며, 로컬과 실제 서버 환경의 가장 큰 차이점인 네트워크와 환경 변수 관리의 중요성을 몸으로 깨달았습니다. 이제는 어떤 환경에서든 로그를 기반으로 체계적인 문제 해결을 할 수 있다는 자신감을 얻었습니다.'
+      }
+      // ... (다른 문제 해결 경험이 있다면 여기에 추가) ...
+    ],
     notionUrl: '#'
   },
   {
     id: 6,
     thumbnail: '/portfolio_old_thumbnail.jpg',
     title: '포트폴리오_2023',
-    description: '기부 목표 설정과 성향 분석을 통한 기부 플랫폼입니다.',
-    period: '2025.03.14 - 2025.03.26',
-    headcount: '9인 (풀스택 개발)',
-    gradient: { from: '#4E65FF', to: '#7A3DFF' },
-    tags: ['팀', '사이드'],
+    description: '디자인, 템플릿, 폰트, 아이콘 등 다양한 디지털 자산을 다운로드할 수 있는 크리에이티브 리소스 플랫폼입니다.',
+    period: '2024.01 - 2024.02',
+    headcount: '4인 (풀스택 개발)',
+    gradient: { from: '#1F1F2C', to: '#383270' },
+    tags: ['팀', '메인'],
     category: 'Team',
-    githubUrl: '#',
+    githubUrl: 'https://github.com/forqls/vplay',
     deployUrl: '#',
-    // --- 👇 '하모니' 프로젝트의 상세 내용 ---
     myRole: [
-      '기부금 결제 연동 API 개발 (PG사)',
-      '사용자별 기부 성향 분석 로직 구현',
-      // ... 하모니 프로젝트에서 한 역할들
+      {
+        subtitle: 'ERD 설계 및 Oracle DB 구축',
+        details: [ '서비스의 핵심 기능(회원, 제작의뢰, 프로젝트)에 대한 데이터 모델링 및 관계 설정', '데이터 무결성과 정규화를 고려한 데이터베이스 설계' ]
+      },
+      {
+        subtitle: 'Spring Security 기반 인증/인가 시스템 구현',
+        details: [ 'JWT(JSON Web Token)와 Bcrypt 암호화를 적용한 회원가입/로그인 API 개발', '관리자(Admin)와 일반사용자(User) 권한을 분리한 역할 기반 접근 제어(RBAC) 적용' ]
+      },
     ],
-    techStack: {
-      backend: 'Node.js, Express',
-      frontend: 'Vue.js, SCSS'
-    },
-    problemSolving: '결제 API 연동 시 발생할 수 있는 네트워크 오류에 대비하여, 재시도 로직과 에러 로깅 시스템을 구축하여 안정성을 높였습니다.',
+    techStack: [
+      {
+        category: 'Backend',
+        tools: 'Java, Spring Boot, Spring MVC, MyBatis'
+      },
+      {
+        category: 'Frontend',
+        tools: 'HTML5, CSS3, JavaScript, jQuery, Summernote, Bootstrap, WaveSurfer.js'
+      },
+      {
+        category: 'Database',
+        tools: 'Oracle (개발), PostgreSQL (배포)'
+      },
+      {
+        category: 'Infra/Etc',
+        tools: 'Cloudflare R2, REST API, Ajax, Kakao/Google OAuth 2.0, JavaMail Sender'
+      }
+    ],
+    keyFeatures: [
+      {
+        subtitle: 'RESTful API 기반의 실시간 제작의뢰 문의 기능',
+        description: '사용자들이 크리에이터에게 영상/음악 등의 제작을 의뢰하고 실시간으로 소통할 수 있는 문의 기능을 개발했습니다.',
+        process: [
+          'REST API 설계: RESTful 원칙에 따라, 문의(inquiry), 답변(answer) 등을 명사 형태의 URI로 명확하게 설계했습니다.',
+          'Ajax 비동기 통신: 페이지 전체가 새로고침되지 않고 해당 부분만 동적으로 변경되도록 Ajax 통신을 적용했습니다.',
+          '데이터 처리: MyBatis를 통해 해당 데이터를 DB에 저장하고, 생성된 문의 ID를 즉시 프론트엔드로 반환했습니다.'
+        ]
+      }
+    ],
+    problemSolving: [
+      {
+        subtitle: '클라우드 플랫폼으로 서버 이전 및 배포 오류 해결',
+        problem: '학원에서 제공한 Oracle DB는 약정된 4개월 후에 종료될 예정이었습니다. 프로젝트를 계속 운영하기 위해 개인 서버로 DB를 이전하고, Render 플랫폼에 배포하는 과정에서 Database Connection Error가 발생했습니다.',
+        solution: [
+          '로그 분석: 가장 먼저 Render의 배포 로그를 확인하여, 원인이 Connection Timeout임을 특정했습니다.',
+          '원인 추적: 로컬 환경과 달리, 클라우드 플랫폼의 네트워크 방화벽이 외부 DB로의 접속을 차단하고 있거나, 환경 변수 설정이 잘못되었을 가능성을 중심으로 문제를 추적했습니다.',
+          '단계적 해결: Render 공식 문서를 참고하여, 새로 구축한 DB 서버의 IP를 방화벽 허용 목록에 추가했습니다. 그다음, 로컬의 application.properties에 있던 DB 접속 정보를 Render의 환경 변수 설정에 정확히 입력하여 문제를 해결했습니다.',
+        ],
+        learned: 'DB 이전부터 배포까지 직접 경험하며, 로컬과 실제 서버 환경의 가장 큰 차이점인 네트워크와 환경 변수 관리의 중요성을 몸으로 깨달았습니다. 이제는 어떤 환경에서든 로그를 기반으로 체계적인 문제 해결을 할 수 있다는 자신감을 얻었습니다.'
+      }
+      // ... (다른 문제 해결 경험이 있다면 여기에 추가) ...
+    ],
     notionUrl: '#'
   },
 ];
@@ -285,29 +543,93 @@ const projects = [
                 {/* 하단 상세 내용 */}
                 <div className="space-y-12 text-left p-12 md:p-16 lg:p-20">
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-800 mb-4 border-b-2 border-gray-200 pb-2">주요 역할 (My Role)</h3>
-                    <ul className="list-disc list-inside space-y-2 text-gray-600">
-                      {selectedProject.myRole.map((role, index) => (
-                        <li key={index}>{role}</li>
-                      ))}
-                    </ul>
-                  </div>
-                  
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-800 mb-4 border-b-2 border-gray-200 pb-2">기술 스택 (Tech Stack)</h3>
-                    <div className="space-y-3">
-                       <p><strong className="font-semibold">Backend:</strong> {selectedProject.techStack.backend}</p>
-                       <p><strong className="font-semibold">Frontend:</strong> {selectedProject.techStack.frontend}</p>
-                    </div>
-                  </div>
-
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-800 mb-4 border-b-2 border-gray-200 pb-2">문제 해결 경험</h3>
-                     <p className="text-gray-600 leading-relaxed">{selectedProject.problemSolving}</p>
+                    <h3 className="text-[1.625rem] font-bold text-brand-dark mb-5 border-gray-200 pb-2">주요 역할 (My Role)</h3>
+                    {selectedProject.myRole?.map((role, index) => (
+                      <div key={index} className="mb-5">
+                       <h4 className="text-lg font-bold text-brand-dark bg-[#EFEFEF] rounded-b-[14px] rounded-tr-[14px] py-[0.225rem] px-[1.2rem] mb-[5px] inline-block">
+                          {role.subtitle}
+                        </h4>
+                        <ul className="list-disc list-inside space-y-1 text-base text-brand-dark pl-2.5">
+                          {role.details?.map((detail, detailIndex) => ( // 안전장치 ?. 추가!
+                            <li key={detailIndex}>{detail}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
                   </div>
 
                   <div>
-                     <h3 className="text-2xl font-bold text-gray-800 mb-4 border-b-2 border-gray-200 pb-2">더 자세한 개발 과정이 궁금하다면?</h3>
+                    <h3 className="text-[1.625rem] font-bold text-brand-dark mb-5 pb-2">기술 스택 (Tech Stack)</h3>
+                    
+                    {/* 새로운 데이터 구조를 map으로 순회하며 렌더링 */}
+                    {selectedProject.techStack?.map((stack, index) => (
+                      <div key={index} className="mb-5"> {/* 카테고리+툴을 감싸는 div */}
+                        
+                        {/* 카테고리(소제목) <h4> */}
+                      <h4 className="text-lg font-bold text-brand-dark bg-[#EFEFEF] rounded-b-[14px] rounded-tr-[14px] py-[0.225rem] px-[1.2rem] mb-[5px] inline-block">
+                          {stack.category}
+                        </h4>
+
+                        {/* 사용 툴 <p> - 리스트 스타일 없이 텍스트만 표시 */}
+                        <p className="text-base text-brand-dark pl-2.5">
+                          {stack.tools}
+                        </p>
+
+                      </div>
+                    ))}
+                  </div>
+
+                   <div>
+                    <h3 className="text-[1.625rem] font-bold text-brand-dark mb-5 pb-2">핵심 기능</h3>
+                    {selectedProject.keyFeatures?.map((feature, index) => (
+                      <div key={index} className="mb-5">
+                        <h4 className="text-lg font-bold text-brand-dark bg-[#EFEFEF] rounded-b-[14px] rounded-tr-[14px] py-[0.225rem] px-[1.2rem] mb-4 inline-block">{feature.subtitle}</h4>
+                        <p className="text-base text-brand-dark pl-2.5 mb-3">구현 내용: {feature.description}</p>
+                        <p className="text-base text-brand-dark pl-2.5 mb-3">기술적 의사결정 및 과정:</p>
+                        <ul className="list-disc list-inside space-y-1 text-base text-brand-dark pl-2.5">
+                          {feature.process?.map((item, itemIndex) => ( <li key={itemIndex}>{item}</li> ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div>
+                    <h3 className="text-[1.625rem] font-bold text-brand-dark mb-5 pb-2">문제 해결 경험</h3>
+                    
+                    {selectedProject.problemSolving?.map((item, index) => (
+                      <div key={index} className="mb-5"> {/* 경험 그룹을 감싸는 div */}
+                        
+                        {/* 경험 소제목 <h4> */}
+                        <h4 className="text-lg font-bold text-brand-dark bg-[#EFEFEF] rounded-b-[14px] rounded-tr-[14px] py-[0.225rem] px-[1.2rem] mb-4 inline-block">
+                          {item.subtitle}
+                        </h4>
+
+                        {/* 문제 상황 <p> */}
+                        <p className="text-base text-brand-dark pl-2.5 mb-3">
+                          <strong className="font-semibold">문제 상황:</strong> {item.problem}
+                        </p>
+
+                        {/* 해결 과정 <ol> */}
+                        <div>
+                          <p className="text-base text-brand-dark pl-2.5 mb-2 font-semibold">해결 과정:</p>
+                          <ol className="list-lower-alpha list-inside space-y-1 text-base text-brand-dark pl-2.5 mb-3">
+                            {item.solution?.map((step, stepIndex) => (
+                              <li key={stepIndex}>{step}</li>
+                            ))}
+                          </ol>
+                        </div>
+
+                        {/* 배운 점 <p> */}
+                        <p className="text-base text-brand-dark pl-2.5">
+                          <strong className="font-semibold">배운 점:</strong> {item.learned}
+                        </p>
+
+                      </div>
+                    ))}
+                  </div>
+
+                  <div>
+                     <h3 className="text-2xl font-bold text-gray-800 mb-4 border-gray-200 pb-2">더 자세한 개발 과정이 궁금하다면?</h3>
                      <div className="flex gap-4">
                        <a href={selectedProject.githubUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">GitHub Repository ↗</a>
                        <a href={selectedProject.notionUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">기획/설계 문서 보기 (Notion) ↗</a>
