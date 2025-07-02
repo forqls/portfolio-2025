@@ -47,7 +47,7 @@
 /* 모달이 완전히 열렸을 때의 스타일 */
 .ReactModal__Overlay--after-open {
   opacity: 1;
-  background-color: rgba(187, 191, 199, 0.6);
+  background-color: rgba(187, 191, 199, 0.6) !important;
   backdrop-filter: blur(40px);
   -webkit-backdrop-filter: blur(40px); 
 }
