@@ -279,7 +279,7 @@ const AboutMeSection = () => {
         isOpen={isModalOpen}
         onRequestClose={closeModal}
         contentLabel="팀원 리뷰"
-        overlayClassName="fixed inset-0 bg-black/70 flex items-center justify-center z-40"
+        overlayClassName="fixed inset-0 flex items-center justify-center z-40 custom-modal-overlay"
         className="relative w-full h-screen bg-[#E9EDF5] text-brand-dark shadow-xl py-24 px-32"
       >
         <button 

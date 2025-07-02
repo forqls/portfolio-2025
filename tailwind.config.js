@@ -6,6 +6,17 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    container: {
+      center: true, 
+      padding: '2rem', 
+      screens: {
+        sm: '640px',
+        md: '768px',
+        lg: '1024px',
+        xl: '1280px',
+        '2xl': '1620px', 
+      },
+    },
     extend: {
       boxShadow: {
         'glass-card': '0 0 55px rgba(74, 38, 188, 0.25)',
@@ -23,7 +34,11 @@ export default {
         'profile-bg': '#F1F1FD',      // 기존 프로필 카드 배경색
         'tag-bg': '#E9E9F9',         // 기존 해시태그 배경색
         'profile-image-bg': 'rgba(234, 239, 245, 0.1)', // #EAEFF5 투명도 10%
-        'profile-border': 'rgba(217, 220, 238, 0.5)', 
+        'profile-border': 'rgba(217, 220, 238, 0.5)',
+        'overlay-bg': 'rgba(187, 191, 199, 0.6)',
+      },
+      backdropBlur: {
+        '40px': '40px', // 40px 블러 효과
       },
       fontFamily: {
       'sans': ['Noto Sans KR', 'sans-serif'], 

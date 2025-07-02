@@ -2,3 +2,56 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px; /* 스크롤바의 너비 */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f1f1f1; /* 스크롤바 뒷 배경 색상 */
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #ccc; /* 스크롤바 막대 색상 */
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #999; /* 마우스를 올렸을 때의 스크롤바 막대 색상 */
+}
+
+.invisible-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
+}
+
+.invisible-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.ReactModal__Overlay {
+  opacity: 0;
+  transition: opacity 200ms ease-in-out;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 40; 
+}
+
+/* 모달이 완전히 열렸을 때의 스타일 */
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+  background-color: rgba(187, 191, 199, 0.6);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px); 
+}
+
+.ReactModal__Overlay--before-close {
+  opacity: 0;
+}
