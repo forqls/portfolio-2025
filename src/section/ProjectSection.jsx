@@ -111,7 +111,7 @@ const projects = [
     id: 2,
     thumbnail: '/harmony_thumbnail.jpg',
     title: '하모니',
-    description: '디자인, 템플릿, 폰트, 아이콘 등 다양한 디지털 자산을 다운로드할 수 있는 크리에이티브 리소스 플랫폼입니다.',
+    description: '직접 후원 대상 시스템, 명확한 목표 금액 설정과 기한 설정을 통한 기부 플랫폼입니다.',
     period: '2025.01 - 2025.02',
     headcount: '5인 (풀스택 개발)',
     gradient: { from: '#214632', to: '#26B173' },
@@ -169,7 +169,7 @@ const projects = [
     problemSolving: [
       {
         subtitle: '정적 리소스 경로 문제 해결',
-        problem: '게시글 작성 시 업로드한 이미지가 서버의 지정된 폴더에는 정상적으로 저장되었지만, 웹 페이지에서는 이미지가 보이지 않는 '엑스박스' 오류가 발생했습니다.',
+        problem: '게시글 작성 시 업로드한 이미지가 서버의 지정된 폴더에는 정상적으로 저장되었지만, 웹 페이지에서는 이미지가 보이지 않는 "엑스박스" 오류가 발생했습니다.',
         solution: [
           '원인 분석: 개발자 도구로 확인 결과, 이미지 태그(<img>)의 src 속성값이 브라우저가 직접 접근할 수 없는 서버의 로컬 파일 시스템 경로(예: file:///C:/upload/...)로 설정되어 있었습니다. 웹 브라우저는 보안 정책상 로컬 파일 시스템에 직접 접근할 수 없기 때문에 이미지를 불러오지 못하는 것이 근본적인 원인이었습니다.',
           '원인 추적: 로컬 환경과 달리, 클라우드 플랫폼의 네트워크 방화벽이 외부 DB로의 접속을 차단하고 있거나, 환경 변수 설정이 잘못되었을 가능성을 중심으로 문제를 추적했습니다.',
@@ -177,7 +177,6 @@ const projects = [
         ],
         learned: '이번 경험을 통해 웹 브라우저의 동작 원리와 보안 정책에 대해 깊이 이해할 수 있었습니다. 특히 브라우저가 접근할 수 있는 **논리적인 웹 경로(URL)**와 서버에 파일이 저장되는 물리적인 파일 경로는 명확히 다르다는 것을 깨달았고, Spring Boot의 정적 리소스 핸들러가 이 둘을 어떻게 연결해주는지 실무적으로 체득했습니다. 또한, 문제가 발생했을 때 개발자 도구를 활용해 원인을 분석하는 디버깅 능력의 중요성을 다시 한번 느낄 수 있었습니다.'
       }
-      // ... (다른 문제 해결 경험이 있다면 여기에 추가) ...
     ],
     requirementsUrl: 'https://docs.google.com/spreadsheets/d/1KgVs-xaFTL7uYtwpHxOfwTr_oV-fE8HaqtfHZnO0dik/edit?usp=sharing' ,
     erdUrl: '/givehub-red.png', 
@@ -191,7 +190,7 @@ const projects = [
     period: '2025.04 - 진행중',
     headcount: '4인 (풀스택 개발)',
     gradient: { from: '#673AB7', to: '#365CF5' },
-    tags: ['팀', '메인'],
+    tags: ['팀', '사이드', '진행중'],
     category: 'Team',
     githubUrl: 'https://github.com/castleBell0921/dealon.git',
     deployUrl: 'https://vplay-ebcf.onrender.com',////////////////////////////////////////////////////////미완
@@ -201,31 +200,35 @@ const projects = [
         details: [ '서비스의 핵심 기능(회원, 제작의뢰, 프로젝트)에 대한 데이터 모델링 및 관계 설정', '데이터 무결성과 정규화를 고려한 데이터베이스 설계' ]
       },
       {
-        subtitle: 'Spring Security 기반 인증/인가 시스템 구현',
-        details: [ 'JWT(JSON Web Token)와 Bcrypt 암호화를 적용한 회원가입/로그인 API 개발', '관리자(Admin)와 일반사용자(User) 권한을 분리한 역할 기반 접근 제어(RBAC) 적용' ]
+        subtitle: '최근 본 상품 기능 구현',
+        details: [ '쿠키(Cookie)를 활용한 데이터 관리: 사용자가 특정 상품의 상세 페이지를 조회할 때, 해당 상품의 ID를 클라이언트의 쿠키(Cookie)에 저장하는 방식으로 기능 구현' ]
+      },
+      {
+        subtitle: 'UI/UX 기획 및 Figma를 활용한 디자인',
+        details: [ '사용자 관점의 플로우를 고려한 와이어프레임 및 프로토타입 제작', '개발 효율성 증대를 위한 컴포넌트 기반 디자인 시스템 설계 참여' ]
       },
     ],
     techStack: [
       {
         category: 'Backend',
-        tools: 'Java, Spring Boot, Spring MVC, MyBatis'
+        tools: 'Node.js, Express.js'
       },
       {
         category: 'Frontend',
-        tools: 'HTML5, CSS3, JavaScript, jQuery, Summernote, Bootstrap, WaveSurfer.js'
+        tools: 'React, JavaScript, HTML5, CSS3, Vite'
       },
       {
         category: 'Database',
-        tools: 'Oracle (개발), PostgreSQL (배포)'
+        tools: 'Oracle'
       },
       {
         category: 'Infra/Etc',
-        tools: 'Cloudflare R2, REST API, Ajax, Kakao/Google OAuth 2.0, JavaMail Sender'
+        tools: 'REST API, Google/Kakao OAuth 2.0, Git / GitHub, GitHub Actions, CoolSMS'
       }
     ],
     keyFeatures: [
       {
-        subtitle: 'RESTful API 기반의 실시간 제작의뢰 문의 기능',
+        subtitle: '쿠키(Cookie)를 활용한 최근 본 상품 기능',
         description: '사용자들이 크리에이터에게 영상/음악 등의 제작을 의뢰하고 실시간으로 소통할 수 있는 문의 기능을 개발했습니다.',
         process: [
           'REST API 설계: 설계 단계부터 RESTful 원칙에 따라, 문의(inquiry), 답변(answer) 등을 명사 형태의 URI로 명확하게 설계했습니다.',
@@ -233,23 +236,24 @@ const projects = [
           '데이터 처리: 사용자가 문의를 등록하면, MyBatis를 통해 해당 데이터를 DB에 저장하고, 생성된 문의 ID를 즉시 프론트엔드로 반환하여 사용자가 방금 작성한 글을 바로 확인할 수 있도록 구현했습니다.'
         ]
          },
-    ],
+    ], 
     problemSolving: [
       {
-        subtitle: '클라우드 플랫폼으로 서버 이전 및 배포 오류 해결',
-        problem: '학원에서 제공한 Oracle DB는 약정된 4개월 후에 종료될 예정이었습니다. 프로젝트를 계속 운영하기 위해 개인 서버로 DB를 이전하고, Render 플랫폼에 배포하는 과정에서 Database Connection Error가 발생했습니다.',
+        subtitle: `한정된 쿠키(Cookie) 용량과 데이터 관리 문제 해결`,
+        problem: `'최근 본 상 품' 기능을 쿠키를 이용해 구현하던 중, **쿠키의 용량 제한(약 4KB)**이라는 현실적인 문제에 부딪혔습니다. 사용자가 수십, 수백 개의 상품을 계속해서 볼 경우, 상품 ID가 무한정으로 쿠키에 쌓이게 됩니다. 이는 결국 쿠키의 최대 용량을 초과하여 데이터가 유실되거나, 매번 서버 요청 시마다 불필요하게 커진 쿠키 정보가 전송되어 네트워크 성능을 저하시키는 문제를 야기했습니다.`, 
         solution: [
-          '로그 분석: 가장 먼저 Render의 배포 로그를 확인하여, 원인이 Connection Timeout임을 특정했습니다.',
-          '원인 추적: 로컬 환경과 달리, 클라우드 플랫폼의 네트워크 방화벽이 외부 DB로의 접속을 차단하고 있거나, 환경 변수 설정이 잘못되었을 가능성을 중심으로 문제를 추적했습니다.',
-          '단계적 해결: Render 공식 문서를 참고하여, 새로 구축한 DB 서버의 IP를 방화벽 허용 목록에 추가했습니다. 그다음, 로컬의 application.properties에 있던 DB 접속 정보를 Render의 환경 변수 설정에 정확히 입력하여 문제를 해결했습니다.',
+          `원인 분석: 문제의 핵심은 '최근 본 상품' 목록을 제한 없이 저장하려 했던 점이었습니다. 모든 상품을 저장하는 것은 비효율적이며, 사용자에게도 너무 많은 목록은 의미가 없다고 판단했습니다.`,
+          `데이터 관리 전략 수립: 가장 '최근에 본' 상품이라는 기능의 본질에 집중했습니다. 사용자가 가장 의미 있게 참고할 만한 목록의 개수를 20개로 제한하기로 결정했습니다.`,
+          `큐(Queue) 자료구조 로직 적용:`,
+          `사용자가 상품을 조회하면, 해당 상품 ID가 기존 목록에 있는지 먼저 확인합니다.`,
+          `만약 이미 존재하는 ID라면, 기존 위치에서 삭제하고 목록의 가장 맨 앞으로 이동시켜 **'가장 최근에 본 상품'**임을 업데이트했습니다.`,
+          `목록이 20개로 꽉 찬 상태에서 새로운 상품을 보면, 목록의 가장 뒤에 있는(가장 오래된) 상품 ID를 하나 제거하고, 새로운 상품 ID를 맨 앞에 추가하는 선입선출(FIFO) 방식의 로직을 클라이언트 측 스크립트에 구현하여 문제를 해결했습니다.`,
         ],
-        learned: 'DB 이전부터 배포까지 직접 경험하며, 로컬과 실제 서버 환경의 가장 큰 차이점인 네트워크와 환경 변수 관리의 중요성을 몸으로 깨달았습니다. 이제는 어떤 환경에서든 로그를 기반으로 체계적인 문제 해결을 할 수 있다는 자신감을 얻었습니다.'
+        learned: `이번 경험을 통해 브라우저 저장소(쿠키, 로컬 스토리지 등)의 명확한 특성과 한계를 몸소 깨달았습니다. 단순히 기능을 구현하는 것을 넘어, 데이터의 양과 흐름을 예측하고, 한정된 자원 안에서 **최적의 사용자 경험(UX)**을 제공하기 위한 데이터 구조 설계의 중요성을 깊이 이해하게 되었습니다. 이제는 어떤 기능을 만들든 발생 가능한 **엣지 케이스(Edge Case)**를 먼저 고민하고, 확장성과 성능을 고려하는 개발 습관을 갖게 되었습니다.` 
       }
-      // ... (다른 문제 해결 경험이 있다면 여기에 추가) ...
     ],
     requirementsUrl: 'https://docs.google.com/spreadsheets/d/1c4-7bCbl1G_mUL8coZmN_slhOcWzjiPjA7iY-IWDqWw/edit?usp=sharing' ,
     erdUrl: '/dealon-erd.png', 
-    presentationUrl: '여기에_Gamma_공유링크_붙여넣기',////////////////////////////////////////////////////////미완
   },
   {
     id: 4,
@@ -259,64 +263,58 @@ const projects = [
     period: '2025.06 - 2025.07',
     headcount: '1인 개발',
     gradient: { from: '#827D8B', to: '#C6C1D5' },
-    tags: ['팀', '메인'],
-    category: 'Team',
+    tags: ['솔로', '사이드'],
+    category: 'Solo',
     githubUrl: 'https://github.com/castleBell0921/dealon.git',
     deployUrl: 'https://vplay-ebcf.onrender.com',////////////////////////////////////////////////////////미완
     myRole: [
       {
-        subtitle: 'ERD 설계 및 Oracle DB 구축',
-        details: [ '서비스의 핵심 기능(회원, 제작의뢰, 프로젝트)에 대한 데이터 모델링 및 관계 설정', '데이터 무결성과 정규화를 고려한 데이터베이스 설계' ]
+        subtitle: 'React 기반 동적 UI/UX 개발',
+        details: [ 'useState, useEffect 등 React Hook을 활용하여 프로젝트 필터링, 모달을 통한 상세 정보 표시 등 동적인 사용자 경험을 구현', '컴포넌트(Header, ProjectCard, Section 등) 기반으로 코드를 모듈화하여 재사용성과 유지보수성을 높임' ]
       },
       {
-        subtitle: 'Spring Security 기반 인증/인가 시스템 구현',
-        details: [ 'JWT(JSON Web Token)와 Bcrypt 암호화를 적용한 회원가입/로그인 API 개발', '관리자(Admin)와 일반사용자(User) 권한을 분리한 역할 기반 접근 제어(RBAC) 적용' ]
+        subtitle: 'Vite 기반 프론트엔드 빌드 시스템 구축',
+        details: [ 'Vite의 빠른 개발 서버와 빌드 기능을 활용하여 개발 환경을 구축하고, 효율적인 번들링을 설정했어요.']
+      },
+      {
+        subtitle: 'Tailwind CSS를 활용한 스타일링 및 디자인 시스템 설계',
+        details: [ 'tailwind.config.js 파일에 브랜드 색상, 폰트, 그림자 효과 등 커스텀 디자인 토큰을 정의하여 일관된 디자인 시스템을 구축', 'PostCSS와 Autoprefixer를 함께 사용하여 CSS의 브라우저 호환성 확보' ]
       },
     ],
     techStack: [
       {
-        category: 'Backend',
-        tools: 'Java, Spring Boot, Spring MVC, MyBatis'
-      },
-      {
         category: 'Frontend',
-        tools: 'HTML5, CSS3, JavaScript, jQuery, Summernote, Bootstrap, WaveSurfer.js'
+        tools: 'React, JavaScript(ES6+), Vite'
       },
       {
-        category: 'Database',
-        tools: 'Oracle (개발), PostgreSQL (배포)'
+        category: 'Markup & Styling',
+        tools: 'HTML5, CSS3, Tailwind CSS'
       },
-      {
-        category: 'Infra/Etc',
-        tools: 'Cloudflare R2, REST API, Ajax, Kakao/Google OAuth 2.0, JavaMail Sender'
-      }
     ],
     keyFeatures: [
       {
-        subtitle: 'RESTful API 기반의 실시간 제작의뢰 문의 기능',
-        description: '사용자들이 크리에이터에게 영상/음악 등의 제작을 의뢰하고 실시간으로 소통할 수 있는 문의 기능을 개발했습니다.',
+        subtitle: '필터링 기능이 포함된 동적 프로젝트 섹션',
+        description: "사용자가 'All', 'Team', 'Single' 등 카테고리 버튼을 클릭하면, 해당 프로젝트만 부드러운 애니메이션과 함께 표시되는 기능을 개발",
         process: [
           'REST API 설계: 설계 단계부터 RESTful 원칙에 따라, 문의(inquiry), 답변(answer) 등을 명사 형태의 URI로 명확하게 설계했습니다.',
-          'CORS(Cross-Origin Resource Sharing) 정책을 설정하여, 다른 도메인에서 실행되는 프론트엔드 애플리케이션이 백엔드 API에 안전하게 접근할 수 있도록 허용했습니다.',
-          '데이터 처리: 사용자가 문의를 등록하면, MyBatis를 통해 해당 데이터를 DB에 저장하고, 생성된 문의 ID를 즉시 프론트엔드로 반환하여 사용자가 방금 작성한 글을 바로 확인할 수 있도록 구현했습니다.'
+          'useState Hook으로 현재 활성화된 필터 상태를 관리하고, useEffect Hook을 사용하여 필터가 변경될 때마다 projects 배열을 필터링하고 상태를 업데이트하는 방식을 사용했습니다.',
+          '이를 통해 선언적으로 UI를 관리하고 불필요한 렌더링을 방지했습니다.'
         ]
          },
     ],
     problemSolving: [
       {
-        subtitle: '클라우드 플랫폼으로 서버 이전 및 배포 오류 해결',
-        problem: '학원에서 제공한 Oracle DB는 약정된 4개월 후에 종료될 예정이었습니다. 프로젝트를 계속 운영하기 위해 개인 서버로 DB를 이전하고, Render 플랫폼에 배포하는 과정에서 Database Connection Error가 발생했습니다.',
+        subtitle: '첫 React 프로젝트, 홀로 완성하기',
+        problem: ['백엔드 개발 경험은 있었지만, React를 사용해 동적인 웹 애플리케이션을 처음부터 끝까지 혼자 구축하는 것은 완전히 새로운 도전이었습니다.','컴포넌트 기반 사고, 상태 관리(State Management), JSX 문법 등 생소한 개념들 때문에 초기 개발 단계에서 많은 어려움을 겪었습니다.',],
         solution: [
-          '로그 분석: 가장 먼저 Render의 배포 로그를 확인하여, 원인이 Connection Timeout임을 특정했습니다.',
-          '원인 추적: 로컬 환경과 달리, 클라우드 플랫폼의 네트워크 방화벽이 외부 DB로의 접속을 차단하고 있거나, 환경 변수 설정이 잘못되었을 가능성을 중심으로 문제를 추적했습니다.',
-          '단계적 해결: Render 공식 문서를 참고하여, 새로 구축한 DB 서버의 IP를 방화벽 허용 목록에 추가했습니다. 그다음, 로컬의 application.properties에 있던 DB 접속 정보를 Render의 환경 변수 설정에 정확히 입력하여 문제를 해결했습니다.',
+          '개념 정복을 위한 의식적인 노력: 막연하게 코드를 짜기보다, React 공식 문서를 정독하며 **컴포넌트의 생명주기(Lifecycle)**와 **Hooks(useState, useEffect 등)**의 개념부터 확실히 다졌습니다.',
+          '특히, 프로젝트 필터링 기능과 같이 상태에 따라 UI가 변해야 하는 부분을 구현하며 상태(State)와 속성(Props)의 흐름을 집중적으로 학습했습니다.',
         ],
-        learned: 'DB 이전부터 배포까지 직접 경험하며, 로컬과 실제 서버 환경의 가장 큰 차이점인 네트워크와 환경 변수 관리의 중요성을 몸으로 깨달았습니다. 이제는 어떤 환경에서든 로그를 기반으로 체계적인 문제 해결을 할 수 있다는 자신감을 얻었습니다.'
+        learned: `이 프로젝트는 제게 React와 현대 프론트엔드 개발에 대한 깊은 이해를 선물했습니다. 이제는 단순히 기능을 구현하는 것을 넘어, 사용자 경험을 고려한 동적인 UI를 설계하고 구축할 수 있는 자신감을 얻었습니다. 또한, 낯선 기술에 대한 두려움 없이 주도적으로 학습하고 문제를 해결하는 저만의 성장 사이클을 만들 수 있었습니다.`
       }
     ],
     requirementsUrl: 'https://docs.google.com/spreadsheets/d/10CiUG18fGrM2qKxKslMeXjslcGnF8abdkhVaAl-C9Gc/edit?usp=sharing' ,
     erdUrl: '/vplay-erd.png', 
-    presentationUrl: '여기에_Gamma_공유링크_붙여넣기', ////////////////////////////////////////////////////////미완
   },
   {
     id: 5,
@@ -326,64 +324,69 @@ const projects = [
     period: '2023.11 - 2023.12',
     headcount: '2인 (기획, 개발)',
     gradient: { from: '#364518', to: '#848F3E' },
-    tags: ['팀', '메인'],
+    tags: ['팀', '워드프레스'],
     category: 'Team',
-    githubUrl: 'https://github.com/forqls/vplay.git',
     deployUrl: 'https://naturelica.co.kr/',
     myRole: [
       {
-        subtitle: 'ERD 설계 및 Oracle DB 구축',
-        details: [ '서비스의 핵심 기능(회원, 제작의뢰, 프로젝트)에 대한 데이터 모델링 및 관계 설정', '데이터 무결성과 정규화를 고려한 데이터베이스 설계' ]
+        subtitle: '프로젝트 구축 및 클라이언트 커뮤니케이션',
+        details: [ '기획자가 기획대로 요구사항들을 분석하여 최종 결과물 전달까지 프로젝트의 전 과정을 책임지고 관리', '정기적인 소통을 통해 클라이언트의 피드백을 수렴하고, 디자인 및 기능 개발 과정에 반영' ]
       },
       {
-        subtitle: 'Spring Security 기반 인증/인가 시스템 구현',
-        details: [ 'JWT(JSON Web Token)와 Bcrypt 암호화를 적용한 회원가입/로그인 API 개발', '관리자(Admin)와 일반사용자(User) 권한을 분리한 역할 기반 접근 제어(RBAC) 적용' ]
+        subtitle: 'UI/UX 기획 및 웹사이트 디자인',
+        details: [ "'네이처리카' 브랜드의 친환경적이고 신선한 이미지를 살리기 위해 그린과 화이트 톤을 메인 컬러로 사용하여 디자인 컨셉을 수립", '사용자가 상품을 쉽게 탐색하고 구매할 수 있도록 직관적인 정보 구조와 사용자 동선을 설계' ]
+      },
+      {
+        subtitle: 'WordPress 기반 웹사이트 단독 구축',
+        details: [ 'WordPress 테마와 플러그인을 커스터마이징하여 디자인 시안에 맞는 웹사이트를 구현', 'PC, 태블릿, 모바일 등 다양한 디바이스에서 최적화된 화면을 보여주는 반응형 웹 디자인을 적용' ]
       },
     ],
     techStack: [
       {
-        category: 'Backend',
-        tools: 'Java, Spring Boot, Spring MVC, MyBatis'
+        category: 'CMS',
+        tools: 'WordPress'
       },
       {
         category: 'Frontend',
-        tools: 'HTML5, CSS3, JavaScript, jQuery, Summernote, Bootstrap, WaveSurfer.js'
+        tools: 'HTML5, CSS3, JavaScript'
+      },
+      {
+        category: 'Backend',
+        tools: 'PHP'
       },
       {
         category: 'Database',
-        tools: 'Oracle (개발), PostgreSQL (배포)'
-      },
-      {
-        category: 'Infra/Etc',
-        tools: 'Cloudflare R2, REST API, Ajax, Kakao/Google OAuth 2.0, JavaMail Sender'
+        tools: 'MySQL'
       }
     ],
     keyFeatures: [
       {
-        subtitle: 'RESTful API 기반의 실시간 제작의뢰 문의 기능',
-        description: '사용자들이 크리에이터에게 영상/음악 등의 제작을 의뢰하고 실시간으로 소통할 수 있는 문의 기능을 개발했습니다.',
+        subtitle: '반응형 웹 디자인 적용',
+        description: '사용자가 접속하는 기기(PC, 태플릿, 모바일)의 화면 크기에 맞춰 웹사이트의 레이아웃과 폰트 크기, 이미지 등이 자동으로 최적화되도록 구현했습니다.',
         process: [
-          'REST API 설계: 설계 단계부터 RESTful 원칙에 따라, 문의(inquiry), 답변(answer) 등을 명사 형태의 URI로 명확하게 설계했습니다.',
-          'CORS(Cross-Origin Resource Sharing) 정책을 설정하여, 다른 도메인에서 실행되는 프론트엔드 애플리케이션이 백엔드 API에 안전하게 접근할 수 있도록 허용했습니다.',
-          '데이터 처리: 사용자가 문의를 등록하면, MyBatis를 통해 해당 데이터를 DB에 저장하고, 생성된 문의 ID를 즉시 프론트엔드로 반환하여 사용자가 방금 작성한 글을 바로 확인할 수 있도록 구현했습니다.'
+          'CSS 미디어 쿼리를 사용하여 각 해상도 분기점(Breakpoint)에 맞는 스타일을 지정함으로써, 모든 사용자에게 일관되고 쾌적한 사용 경험을 제공하도록 했습니다.',
         ]
          },
+        {
+      subtitle: '웹 호스팅 설정 및 사이트 배포 총괄',
+      description: '카페24(Cafe24) 웹호스팅 환경을 직접 구성하고, 개발이 완료된 워드프레스 사이트를 라이브 서버에 이전 및 배포했습니다.',
+      process: [
+        'naturelica.co.kr 도메인 연결과 SSL 보안 인증서 적용을 통해, 사용자가 안전하게 접속할 수 있는 안정적인 서비스 환경을 구축했습니다.',
+      ]
+        },
     ],
     problemSolving: [
       {
-        subtitle: '클라우드 플랫폼으로 서버 이전 및 배포 오류 해결',
-        problem: '학원에서 제공한 Oracle DB는 약정된 4개월 후에 종료될 예정이었습니다. 프로젝트를 계속 운영하기 위해 개인 서버로 DB를 이전하고, Render 플랫폼에 배포하는 과정에서 Database Connection Error가 발생했습니다.',
+        subtitle: '요구사항 변경에 따른 유연한 커뮤니케이션 및 대응',
+        problem: '초기 디자인 시안에 대한 합의를 마치고 개발이 상당 부분 진행된 상태에서, 클라이언트 측에서 핵심적인 레이아웃과 컬러 컨셉의 수정을 갑작스럽게 요청하는 상황이 발생했습니다.',
         solution: [
-          '로그 분석: 가장 먼저 Render의 배포 로그를 확인하여, 원인이 Connection Timeout임을 특정했습니다.',
-          '원인 추적: 로컬 환경과 달리, 클라우드 플랫폼의 네트워크 방화벽이 외부 DB로의 접속을 차단하고 있거나, 환경 변수 설정이 잘못되었을 가능성을 중심으로 문제를 추적했습니다.',
-          '단계적 해결: Render 공식 문서를 참고하여, 새로 구축한 DB 서버의 IP를 방화벽 허용 목록에 추가했습니다. 그다음, 로컬의 application.properties에 있던 DB 접속 정보를 Render의 환경 변수 설정에 정확히 입력하여 문제를 해결했습니다.',
+          '요구사항 명확화 및 영향도 분석: 먼저 추가 미팅을 요청하여 변경을 원하는 이유와 구체적인 목표를 다시 한번 명확하게 이해했습니다. 그리고 요청사항을 반영했을 때의 추가 작업 범위, 예상 소요 시간, 기존 기능과의 충돌 가능성 등을 꼼꼼하게 분석하여 클라이언트에게 투명하게 공유했습니다.',
+          '대안 제시를 통한 합의점 도출: 전체를 재개발하는 대신, 기존 구조를 최대한 유지하면서 클라이언트의 새로운 니즈를 만족시킬 수 있는 절충안을 몇 가지 제시했습니다. 예를 들어, 레이아웃 변경은 최소화하되 컬러와 폰트, 주요 이미지 교체만으로도 원하는 분위기를 낼 수 있다는 점을 시각 자료와 함께 설득력 있게 전달했습니다.',
+          '변경 사항 문서화: 최종 합의된 내용은 이메일과 프로젝트 관리 툴에 명확하게 기록하여, 추후 동일한 이슈로 인한 혼선을 방지하고 작업의 근거를 남겼습니다.',
         ],
-        learned: 'DB 이전부터 배포까지 직접 경험하며, 로컬과 실제 서버 환경의 가장 큰 차이점인 네트워크와 환경 변수 관리의 중요성을 몸으로 깨달았습니다. 이제는 어떤 환경에서든 로그를 기반으로 체계적인 문제 해결을 할 수 있다는 자신감을 얻었습니다.'
+        learned: '클라이언트와의 프로젝트에서 가장 중요한 것은 지속적인 소통과 신뢰 구축임을 깨달았습니다. 기술적인 능력만큼이나, 변경사항을 유연하게 받아들이고 프로젝트의 전체 목표에 맞춰 최적의 해결책을 찾아 제시하는 문제 해결 능력의 중요성을 몸으로 배울 수 있었습니다.'
       }
     ],
-    requirementsUrl: 'https://docs.google.com/spreadsheets/d/10CiUG18fGrM2qKxKslMeXjslcGnF8abdkhVaAl-C9Gc/edit?usp=sharing' ,
-    erdUrl: '/vplay-erd.png', 
-    presentationUrl: '여기에_Gamma_공유링크_붙여넣기', 
   },
   {
     id: 6,
@@ -393,64 +396,53 @@ const projects = [
     period: '2023.05 - 2023.06',
     headcount: '1인 개발',
     gradient: { from: '#83797E', to: '#D2BFBD' },
-    tags: ['팀', '메인'],
-    category: 'Team',
-    githubUrl: 'https://github.com/forqls/vplay.git',
-    deployUrl: 'https://vplay-ebcf.onrender.com',
+    tags: ['솔로', '사이드'],
+    category: 'Solo',
+    githubUrl: 'https://github.com/forqls/vplay.git',/////////////////////////////////////////////////삽입하기
+    deployUrl: 'https://vplay-ebcf.onrender.com',///////////////////////////////////삽입하기
     myRole: [
       {
-        subtitle: 'ERD 설계 및 Oracle DB 구축',
-        details: [ '서비스의 핵심 기능(회원, 제작의뢰, 프로젝트)에 대한 데이터 모델링 및 관계 설정', '데이터 무결성과 정규화를 고려한 데이터베이스 설계' ]
+        subtitle: 'UI/UX 기반의 웹 구조 설계 및 구현',
+        details: [ "fullPage.js 라이브러리의 특성을 활용하여, 'INTRO', 'ABOUT', 'WEB REDESIGN' 등 7개의 섹션으로 구성된 싱글 페이지 애플리케이션(SPA)의 전체적인 구조를 설계하고 HTML로 마크업했습니다.", '사용자 정보(프로필, 학력, 기술 스택)와 프로젝트(웹 리디자인, 그래픽) 데이터를 효과적으로 보여주기 위한 화면 구조를 기획하고 구현했습니다.' ]
       },
       {
-        subtitle: 'Spring Security 기반 인증/인가 시스템 구현',
-        details: [ 'JWT(JSON Web Token)와 Bcrypt 암호화를 적용한 회원가입/로그인 API 개발', '관리자(Admin)와 일반사용자(User) 권한을 분리한 역할 기반 접근 제어(RBAC) 적용' ]
+        subtitle: 'jQuery를 활용한 동적 웹 인터랙션 개발',
+        details: [ '네비게이션 메뉴의 마우스 오버 시 서브메뉴가 나타나는 드롭다운 기능을 구현했습니다.', "'GRAPHIC DESIGN' 섹션에서 각 디자인 항목을 클릭했을 때, 해당 이미지에 대한 상세 정보를 보여주는 모달(Modal) 창 기능을 개발했습니다." ]
+      },
+      {
+        subtitle: 'CSS3 애니메이션을 통한 시각적 경험 향상',
+        details: [ '@keyframes를 활용하여 INTRO 섹션의 텍스트, 로고, 배경 요소들이 순차적으로 등장하는 동적인 인트로 화면을 구현했습니다.', "사용자의 조작(Hover 등)에 따라 버튼과 그래픽 요소들이 시각적으로 반응하도록 인터랙티브한 스타일을 적용했습니다." ]
       },
     ],
     techStack: [
       {
-        category: 'Backend',
-        tools: 'Java, Spring Boot, Spring MVC, MyBatis'
+        category: 'Frontend',
+        tools: 'HTML5, CSS3, JavaScript'
       },
       {
-        category: 'Frontend',
-        tools: 'HTML5, CSS3, JavaScript, jQuery, Summernote, Bootstrap, WaveSurfer.js'
+        category: 'Libraries',
+        tools: 'jQuery, fullPage.js'
       },
       {
         category: 'Database',
         tools: 'Oracle (개발), PostgreSQL (배포)'
       },
       {
-        category: 'Infra/Etc',
-        tools: 'Cloudflare R2, REST API, Ajax, Kakao/Google OAuth 2.0, JavaMail Sender'
+        category: 'Etc',
+        tools: 'Dynamic UI, CSS Animation, Interactive Web'
       }
     ],
     keyFeatures: [
       {
-        subtitle: 'RESTful API 기반의 실시간 제작의뢰 문의 기능',
-        description: '사용자들이 크리에이터에게 영상/음악 등의 제작을 의뢰하고 실시간으로 소통할 수 있는 문의 기능을 개발했습니다.',
+        subtitle: 'jQuery와 CSS를 활용한 동적 모달(Modal) 뷰 기능',
+        description: "'GRAPHIC DESIGN' 섹션에서 사용자가 특정 그래픽 디자인 버튼을 클릭하면, 화면 전환 없이 해당 작품의 전체 이미지를 담은 모달 창이 부드럽게 나타나는 기능을 구현했습니다.",
         process: [
-          'REST API 설계: RESTful 원칙에 따라, 문의(inquiry), 답변(answer) 등을 명사 형태의 URI로 명확하게 설계했습니다.',
-          'Ajax 비동기 통신: 페이지 전체가 새로고침되지 않고 해당 부분만 동적으로 변경되도록 Ajax 통신을 적용했습니다.',
-          '데이터 처리: MyBatis를 통해 해당 데이터를 DB에 저장하고, 생성된 문의 ID를 즉시 프론트엔드로 반환했습니다.'
+          'jQuery 이벤트 핸들링: 각 그래픽 작품 버튼(.bnt_open_*)에 click 이벤트를 바인딩하여 사용자의 클릭 동작을 감지했습니다.',
+          'DOM 조작 및 CSS 제어: 이벤트 발생 시, 숨겨져 있던 모달창(.modal_bg_*, .nav_*)의 display 속성을 block으로 변경하여 화면에 표시했습니다. 동시에 body에 not_scroll 클래스를 추가하여 모달이 활성화된 동안 배경 페이지의 스크롤을 막아 사용자 경험(UX)의 일관성을 유지했습니다.',
+          '상태 저장: 모달이 열리기 전의 스크롤 위치(posY)를 변수에 저장했다가, 모달이 닫힐 때 해당 위치로 복원시켜 사용자가 보던 위치를 벗어나지 않도록 처리했습니다.'
         ]
       }
     ],
-    problemSolving: [
-      {
-        subtitle: '클라우드 플랫폼으로 서버 이전 및 배포 오류 해결',
-        problem: '학원에서 제공한 Oracle DB는 약정된 4개월 후에 종료될 예정이었습니다. 프로젝트를 계속 운영하기 위해 개인 서버로 DB를 이전하고, Render 플랫폼에 배포하는 과정에서 Database Connection Error가 발생했습니다.',
-        solution: [
-          '로그 분석: 가장 먼저 Render의 배포 로그를 확인하여, 원인이 Connection Timeout임을 특정했습니다.',
-          '원인 추적: 로컬 환경과 달리, 클라우드 플랫폼의 네트워크 방화벽이 외부 DB로의 접속을 차단하고 있거나, 환경 변수 설정이 잘못되었을 가능성을 중심으로 문제를 추적했습니다.',
-          '단계적 해결: Render 공식 문서를 참고하여, 새로 구축한 DB 서버의 IP를 방화벽 허용 목록에 추가했습니다. 그다음, 로컬의 application.properties에 있던 DB 접속 정보를 Render의 환경 변수 설정에 정확히 입력하여 문제를 해결했습니다.',
-        ],
-        learned: 'DB 이전부터 배포까지 직접 경험하며, 로컬과 실제 서버 환경의 가장 큰 차이점인 네트워크와 환경 변수 관리의 중요성을 몸으로 깨달았습니다. 이제는 어떤 환경에서든 로그를 기반으로 체계적인 문제 해결을 할 수 있다는 자신감을 얻었습니다.'
-      }
-    ],
-    requirementsUrl: 'https://docs.google.com/spreadsheets/d/10CiUG18fGrM2qKxKslMeXjslcGnF8abdkhVaAl-C9Gc/edit?usp=sharing' ,
-    erdUrl: '/vplay-erd.png', 
-    presentationUrl: '여기에_Gamma_공유링크_붙여넣기', 
   },
 ];
 
@@ -478,227 +470,174 @@ const projects = [
   const filters = ['All', 'Team', 'Single'];
 
   return (
-    <section className="relative z-10 min-h-screen bg-transparent px-8 py-24 sm:px-16 lg:px-32">
+     <section id="project" className="relative z-10 min-h-screen bg-transparent px-8 py-24 sm:px-16 lg:px-32">
       <div className="container mx-auto">
-        <h2 className="text-5xl font-bold text-brand-dark mb-4">Project</h2>
-        
-       <div className="inline-flex items-center gap-2 bg-[#F9F9F9]/50 p-[0.6rem] rounded-full mb-8 backdrop-blur-[40px]">
+        <h2 className="text-5xl font-bold text-brand-dark mb-4 text-left">Project</h2>
+        <div className="inline-flex items-center gap-2 bg-[#F9F9F9]/50 p-[0.6rem] rounded-full mb-8 backdrop-blur-[40px]">
           {filters.map(filter => (
-            <button
-              key={filter}
-              onClick={() => setActiveFilter(filter)}
-              // 2. 개별 버튼: 패딩(py-2.5 px-[15px]), 폰트, 기본 투명 배경 등
-              // 3. activeFilter 상태에 따라 동적으로 스타일 변경
-              className={`px-[15px] pt-[0.325rem] pb-[0.425rem] rounded-full font-medium text-brand-dark transition-colors duration-300 ${
-                activeFilter === filter 
-                ? 'bg-gradient-to-r from-brand-pink to-brand-purple shadow-sm' 
-                : 'bg-transparent'
-              }`}
-            >
+            <button key={filter} onClick={() => setActiveFilter(filter)} className={`px-[15px] pt-[0.325rem] pb-[0.425rem] rounded-full font-medium text-brand-dark transition-colors duration-300 ${activeFilter === filter ? 'bg-gradient-to-r from-brand-pink to-brand-purple shadow-sm' : 'bg-transparent'}`}>
               {filter}
             </button>
           ))}
         </div>
-        
-        
         <div key={activeFilter} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project, index) => (
-            // ▼▼▼▼▼ 각 카드에 index를 전달합니다. ▼▼▼▼▼
-            <ProjectCard 
-              key={project.id} 
-              project={project} 
-              onCardClick={() => setSelectedProject(project)} 
-              index={index}
-            />
+            <ProjectCard key={project.id} project={project} onCardClick={() => setSelectedProject(project)} index={index}/>
           ))}
         </div>
       </div>
 
-      {/* 프로젝트 상세 보기 모달 */}
-         <Modal
-        isOpen={!!selectedProject}
-        onRequestClose={() => setSelectedProject(null)}
-        contentLabel="프로젝트 상세"
-        // ▼▼▼ overlayClassName, style prop 모두 없는지 확인! ▼▼▼
-        closeTimeoutMS={200} // 애니메이션 시간과 맞춰주기
-        className="contents" // 모달 내용물은 우리가 직접 꾸밀 것이므로 그대로 둠
-      >
+      <Modal isOpen={!!selectedProject} onRequestClose={() => setSelectedProject(null)} contentLabel="프로젝트 상세" closeTimeoutMS={200} className="contents">
         <div className="relative w-[80vw] h-auto flex items-start">
           <div className="w-full max-h-[90vh] bg-white rounded-2xl shadow-xl overflow-y-auto invisible-scrollbar">
-            {selectedProject && ( // selectedProject가 있을 때만 렌더링
-              <div className="">
-                
-                {/* 상단 이미지 및 제목 */}
-               <div
-                  className="w-full text-center text-white pt-20 px-12 pb-12"
-                  style={{
-                    backgroundImage: `linear-gradient(to bottom right, ${selectedProject.gradient?.from || '#4A5568'}, ${selectedProject.gradient?.to || '#2D3748'})`
-                  }}
-                >
-                  <div className="inline-block w-full max-w-lg h-auto rounded-lg shadow-lg mb-11">
-                    <img alt={`${selectedProject.title} 썸네일`} className="w-full h-full object-cover rounded-md" src={selectedProject.thumbnail} />
-                  </div>
-                  <h2 className="text-[1.625rem] font-bold mb-6 text-white">{selectedProject.title}</h2>
-                  <p className="text-base text-white mb-6">{selectedProject.description}</p> {/* text-white로 변경 */}
-                  <p className="text-sm font-medium text-white mb-6"> {/* text-white로 변경 */}
-                    <span>{selectedProject.period}</span>
-                    <span className="ml-2.5">[{selectedProject.headcount}]</span>
-                  </p>
-                  <div className="flex flex-wrap items-center justify-center gap-2">
-                    {selectedProject.tags.map((tag, index) => (
-                      <span key={index} className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium">{tag}</span>
-                    ))}
-                  </div>
-                </div>
-
-
-                {/* 하단 상세 내용 */}
-                <div className="space-y-12 text-left p-12 md:p-16 lg:p-20">
-                  <div>
-                    <h3 className="text-[1.625rem] font-bold text-brand-dark mb-5 border-gray-200 pb-2">주요 역할 (My Role)</h3>
-                    {selectedProject.myRole?.map((role, index) => (
-                      <div key={index} className="mb-5">
-                       <h4 className="text-lg font-bold text-brand-dark bg-[#EFEFEF] rounded-b-[14px] rounded-tr-[14px] py-[0.225rem] px-[1.2rem] mb-[5px] inline-block">
-                          {role.subtitle}
-                        </h4>
-                        <ul className="list-disc list-inside space-y-1 text-base text-brand-dark pl-2.5">
-                          {role.details?.map((detail, detailIndex) => ( // 안전장치 ?. 추가!
-                            <li key={detailIndex}>{detail}</li>
-                          ))}
-                        </ul>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div>
-                    <h3 className="text-[1.625rem] font-bold text-brand-dark mb-5 pb-2">기술 스택 (Tech Stack)</h3>
-                    
-                    {/* 새로운 데이터 구조를 map으로 순회하며 렌더링 */}
-                    {selectedProject.techStack?.map((stack, index) => (
-                      <div key={index} className="mb-5"> {/* 카테고리+툴을 감싸는 div */}
-                        
-                        {/* 카테고리(소제목) <h4> */}
-                      <h4 className="text-lg font-bold text-brand-dark bg-[#EFEFEF] rounded-b-[14px] rounded-tr-[14px] py-[0.225rem] px-[1.2rem] mb-[5px] inline-block">
-                          {stack.category}
-                        </h4>
-
-                        {/* 사용 툴 <p> - 리스트 스타일 없이 텍스트만 표시 */}
-                        <p className="text-base text-brand-dark pl-2.5">
-                          {stack.tools}
-                        </p>
-
-                      </div>
-                    ))}
-                  </div>
-
-                   <div>
-                    <h3 className="text-[1.625rem] font-bold text-brand-dark mb-5 pb-2">핵심 기능</h3>
-                    {selectedProject.keyFeatures?.map((feature, index) => (
-                      <div key={index} className="mb-5">
-                        <h4 className="text-lg font-bold text-brand-dark bg-[#EFEFEF] rounded-b-[14px] rounded-tr-[14px] py-[0.225rem] px-[1.2rem] mb-4 inline-block">{feature.subtitle}</h4>
-                        <p className="text-base text-brand-dark pl-2.5 mb-3">구현 내용: {feature.description}</p>
-                        <p className="text-base text-brand-dark pl-2.5 mb-3">기술적 의사결정 및 과정:</p>
-                        <ul className="list-disc list-inside space-y-1 text-base text-brand-dark pl-2.5">
-                          {feature.process?.map((item, itemIndex) => ( <li key={itemIndex}>{item}</li> ))}
-                        </ul>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div>
-                    <h3 className="text-[1.625rem] font-bold text-brand-dark mb-5 pb-2">문제 해결 경험</h3>
-                    
-                    {selectedProject.problemSolving?.map((item, index) => (
-                      <div key={index} className="mb-5"> {/* 경험 그룹을 감싸는 div */}
-                        
-                        {/* 경험 소제목 <h4> */}
-                        <h4 className="text-lg font-bold text-brand-dark bg-[#EFEFEF] rounded-b-[14px] rounded-tr-[14px] py-[0.225rem] px-[1.2rem] mb-4 inline-block">
-                          {item.subtitle}
-                        </h4>
-
-                        {/* 문제 상황 <p> */}
-                        <p className="text-base text-brand-dark pl-2.5 mb-3">
-                          <strong className="font-semibold">문제 상황:</strong> {item.problem}
-                        </p>
-
-                        {/* 해결 과정 <ol> */}
-                        <div>
-                          <p className="text-base text-brand-dark pl-2.5 mb-2 font-semibold">해결 과정:</p>
-                          <ol className="list-lower-alpha list-inside space-y-1 text-base text-brand-dark pl-2.5 mb-3">
-                            {item.solution?.map((step, stepIndex) => (
-                              <li key={stepIndex}>{step}</li>
-                            ))}
-                          </ol>
-                        </div>
-
-                        {/* 배운 점 <p> */}
-                        <p className="text-base text-brand-dark pl-2.5">
-                          <strong className="font-semibold">배운 점:</strong> {item.learned}
-                        </p>
-
-                      </div>
-                    ))}
-                  </div>
-
-                  <div>
-                    <h3 className="text-[1.625rem] font-bold text-brand-dark mb-5 pb-2">더 자세한 개발 과정이 궁금하다면?</h3>
-                    <div className="flex flex-col items-start gap-2 pl-2.5"> {/* flex-col과 items-start로 세로 정렬 */}
-                      
-                      <a href={selectedProject.requirementsUrl} target="_blank" rel="noopener noreferrer" className="text-base text-blue-600 hover:underline">
-                        [요구사항 정의서 보기]
-                      </a>
-                      
-                      <a href={selectedProject.erdUrl} target="_blank" rel="noopener noreferrer" className="text-base text-blue-600 hover:underline">
-                        [ERD 설계도 보기]
-                      </a>
-
-                      <a href={selectedProject.presentationUrl} target="_blank" rel="noopener noreferrer" className="text-base text-blue-600 hover:underline">
-                        [초기 기획 PPT 보기]
-                      </a>
-
+            {selectedProject && (
+              <div>
+                {/* --- 모달 상단 --- */}
+                <div className="w-full text-center text-white pt-20 px-12 pb-12" style={{backgroundImage: `linear-gradient(to bottom right, ${selectedProject.gradient?.from || '#4A5568'}, ${selectedProject.gradient?.to || '#2D3748'})`}}>
+                    <div className="inline-block w-full max-w-lg h-auto rounded-lg shadow-lg mb-11"> <img src={selectedProject.thumbnail} alt={`${selectedProject.title} 썸네일`} className="w-full h-full object-cover rounded-md" /></div>
+                    <h2 className="text-[1.625rem] font-bold mb-6 text-white">{selectedProject.title}</h2>
+                    <p className="text-base text-white mb-6">{selectedProject.description}</p>
+                    <p className="text-sm font-medium text-white mb-6"><span>{selectedProject.period}</span><span className="ml-2.5">[{selectedProject.headcount}]</span></p>
+                    <div className="flex flex-wrap items-center justify-center gap-2">
+                        {selectedProject.tags.map((tag, index) => ( <span key={index} className="px-3 py-1 bg-[#E9EDF5]/60 text-brand-dark rounded-full text-xs font-medium backdrop-blur-sm">{tag}</span> ))}
                     </div>
-                  </div>
+                </div>
+                {/* --- 모달 하단 --- */}
+                <div className="space-y-12 text-left p-12 md:p-16 lg:p-20">
+                  {/* 주요 역할 섹션 */}
+                  {selectedProject.myRole && selectedProject.myRole.length > 0 && (
+                    <div>
+                      <h3 className="text-[1.625rem] font-bold text-brand-dark mb-5 pb-2">주요 역할 (My Role)</h3>
+                      {selectedProject.myRole.map((role, index) => (
+                        <div key={index} className="mb-5">
+                          <h4 className="text-lg font-bold text-brand-dark bg-[#EFEFEF] rounded-b-[14px] rounded-tr-[14px] py-[0.425rem] px-[1.2rem] mb-[5px] inline-block">{role.subtitle}</h4>
+                          <ul className="list-disc list-inside space-y-1 text-base text-brand-dark pl-2.5">
+                            {role.details?.map((detail, detailIndex) => ( <li key={detailIndex}>{detail}</li> ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* 기술 스택 섹션 */}
+                  {selectedProject.techStack && selectedProject.techStack.length > 0 && (
+                    <div>
+                      <h3 className="text-[1.625rem] font-bold text-brand-dark mb-5 pb-2">기술 스택 (Tech Stack)</h3>
+                      {selectedProject.techStack.map((stack, index) => (
+                        <div key={index} className="mb-5">
+                          <h4 className="text-lg font-bold text-brand-dark bg-[#EFEFEF] rounded-b-[14px] rounded-tr-[14px] py-[0.225rem] px-[1.2rem] mb-[5px] inline-block">{stack.category}</h4>
+                          <p className="text-base text-brand-dark pl-2.5">{stack.tools}</p>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                  
+                  {/* 핵심 기능 섹션 */}
+                  {selectedProject.keyFeatures && selectedProject.keyFeatures.length > 0 && (
+                    <div>
+                      <h3 className="text-[1.625rem] font-bold text-brand-dark mb-5 pb-2">핵심 기능</h3>
+                      {selectedProject.keyFeatures.map((feature, index) => (
+                        <div key={index} className="mb-5">
+                          <h4 className="text-lg font-bold text-brand-dark bg-[#EFEFEF] rounded-b-[14px] rounded-tr-[14px] py-[0.225rem] px-[1.2rem] mb-4 inline-block">{feature.subtitle}</h4>
+                          <p className="text-base text-brand-dark pl-2.5 mb-3"><strong className="font-semibold">구현 내용:</strong> {feature.description}</p>
+                          <p className="text-base text-brand-dark pl-2.5 mb-2 font-semibold">기술적 의사결정 및 과정:</p>
+                          <ul className="list-disc list-inside space-y-1 text-base text-brand-dark pl-2.5">
+                            {feature.process?.map((item, itemIndex) => ( <li key={itemIndex}>{item}</li> ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* 문제 해결 경험 섹션 */}
+                  {selectedProject.problemSolving && selectedProject.problemSolving.length > 0 && (
+                    <div>
+                      <h3 className="text-[1.625rem] font-bold text-brand-dark mb-5 pb-2">문제 해결 경험</h3>
+                      {selectedProject.problemSolving.map((item, index) => (
+                        <div key={index} className="mb-5">
+                          <h4 className="text-lg font-bold text-brand-dark bg-[#EFEFEF] rounded-b-[14px] rounded-tr-[14px] py-[0.225rem] px-[1.2rem] mb-4 inline-block">{item.subtitle}</h4>
+                          <p className="text-base text-brand-dark pl-2.5 mb-3"><strong className="font-semibold">문제 상황:</strong> {Array.isArray(item.problem) ? item.problem.join(' ') : item.problem}</p>
+                          <div>
+                            <p className="text-base text-brand-dark pl-2.5 mb-2 font-semibold">해결 과정:</p>
+                            <ol className="list-lower-alpha list-inside space-y-1 text-base text-brand-dark pl-2.5 mb-3">
+                              {item.solution?.map((step, stepIndex) => ( <li key={stepIndex}>{step}</li> ))}
+                            </ol>
+                          </div>
+                          <p className="text-base text-brand-dark pl-2.5"><strong className="font-semibold">배운 점:</strong> {item.learned}</p>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* 더 자세한 개발 과정 섹션 */}
+                  {(selectedProject.requirementsUrl || selectedProject.erdUrl || selectedProject.presentationUrl) && (
+                    <div>
+                      <h3 className="text-[1.625rem] font-bold text-brand-dark mb-5 pb-2">더 자세한 개발 과정이 궁금하다면?</h3>
+                      <div className="flex flex-col items-start gap-2 pl-2.5">
+                        
+                        {selectedProject.requirementsUrl && (
+                          <a href={selectedProject.requirementsUrl} target="_blank" rel="noopener noreferrer" className="text-base text-blue-600 hover:underline">
+                            [요구사항 정의서 보기]
+                          </a>
+                        )}
+                        {selectedProject.erdUrl && (
+                          <a href={selectedProject.erdUrl} target="_blank" rel="noopener noreferrer" className="text-base text-blue-600 hover:underline">
+                            [ERD 설계도 보기]
+                          </a>
+                        )}
+                        {selectedProject.presentationUrl && (
+                          <a href={selectedProject.presentationUrl} target="_blank" rel="noopener noreferrer" className="text-base text-blue-600 hover:underline">
+                            [초기 기획 PPT 보기 (Gamma)]
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             )}
           </div>
           
-          {/* --- ▼▼▼▼▼ 모달 외부 버튼 그룹: 최종 수정 완료! ▼▼▼▼▼ --- */}
-          <div className="absolute top-6 -right-20 flex flex-col items-center gap-6">
-            
+          {/* 모달 외부 버튼 그룹 */}
+          <div className="absolute top-6 -right-20 flex flex-col items-center gap-4">
             {/* 닫기 버튼 */}
             <button 
               onClick={() => setSelectedProject(null)} 
-              className="text-brand-dark hover:opacity-70 transition-opacity" // 색상 변경!
+              className="text-brand-dark hover:opacity-70 transition-opacity mb-6"
             >
               <CloseIcon />
             </button>
             
             {/* GitHub 링크 버튼 */}
-            <a 
-              href={selectedProject?.githubUrl} 
-              target="_blank" rel="noopener noreferrer" 
-              className="flex flex-col items-center gap-2 text-brand-dark hover:opacity-70 transition-opacity" // 색상 변경!
-            >
-              <div className="w-14 h-14 bg-white/60 rounded-full flex items-center justify-center backdrop-blur-[20px]"> {/* 배경, 블러 효과 변경! */}
-                <GithubIcon />
-              </div>
-              <span className="text-sm font-medium">GitHub</span>
-            </a>
+            {selectedProject?.githubUrl && (
+              <a 
+                href={selectedProject.githubUrl} 
+                target="_blank" rel="noopener noreferrer" 
+                className="flex flex-col items-center gap-2 text-brand-dark hover:opacity-70 transition-opacity"
+              >
+                <div className="w-[3.125rem] h-[3.125rem] bg-white/60 rounded-full flex items-center justify-center backdrop-blur-[20px]"> 
+                  <GithubIcon className="w-6 h-6" /> 
+                </div>
+                <span className="text-xs font-medium">GitHub</span> 
+              </a>
+            )}
 
             {/* 배포 링크 버튼 */}
-            <a 
-              href={selectedProject?.deployUrl} 
-              target="_blank" rel="noopener noreferrer" 
-              className="flex flex-col items-center gap-2 text-brand-dark hover:opacity-70 transition-opacity" // 색상 변경!
-            >
-              <div className="w-14 h-14 bg-white/60 rounded-full flex items-center justify-center backdrop-blur-[20px]"> {/* 배경, 블러 효과 변경! */}
-                <ExternalLinkIcon />
-              </div>
-              <span className="text-sm font-medium">배포 링크</span>
-            </a>
-
+            {selectedProject?.deployUrl && (
+              <a 
+                href={selectedProject.deployUrl} 
+                target="_blank" rel="noopener noreferrer" 
+                className="flex flex-col items-center gap-2 text-brand-dark hover:opacity-70 transition-opacity"
+              >
+                <div className="w-[3.125rem] h-[3.125rem] bg-white/60 rounded-full flex items-center justify-center backdrop-blur-[20px]"> 
+                  <ExternalLinkIcon className="w-6 h-6" /> 
+                </div>
+                <span className="text-xs font-medium">배포 링크</span>
+              </a>
+            )}
           </div>
+
+
         </div>
       </Modal>
     </section>
