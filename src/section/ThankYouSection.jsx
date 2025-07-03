@@ -5,7 +5,7 @@ const ThankYouSection = () => {
   return (
     <section 
       id="contact" 
-      className="h-screen flex flex-col items-center justify-center text-center p-8"
+      className="h-screen flex flex-col items-center justify-center text-center p-8 bg-transparent"
     >
       <h2 className="font-dynapuff font-bold text-[131px] bg-gradient-to-r from-grad-purple-start to-grad-purple-end bg-clip-text text-transparent mb-4">
         Thank You :)

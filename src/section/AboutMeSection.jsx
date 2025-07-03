@@ -185,7 +185,7 @@ const AboutMeSection = () => {
   const closeModal = () => setIsModalOpen(false);
 
   return (
-    <section className="relative z-10 min-h-screen px-8 py-24 sm:px-16 lg:px-32">
+    <section className="relative z-10 min-h-screen px-8 py-24 sm:px-16 lg:px-32 bg-transparent">
       <div className="container mx-auto">
 
         {/* About me & Interview 제목 */}

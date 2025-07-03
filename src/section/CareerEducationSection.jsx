@@ -91,7 +91,7 @@ const SkillsTools = ({ skills }) => (
 
 const CareerEducationSection = () => {
   return (
-    <section id="career" className="relative z-10 min-h-screen px-8 py-24 sm:px-16 lg:px-32">
+    <section id="career" className="relative z-10 min-h-screen px-8 py-24 sm:px-16 lg:px-32 bg-transparent">
       <div className="container mx-auto">
 
          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
