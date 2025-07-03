@@ -210,20 +210,19 @@ const AboutMeSection = () => {
             </div>
 
             {/* Skills & Tools */}
- <div>
+          <div>
               <h2 className="text-[1.875rem] font-semibold text-brand-dark mb-[1.875rem]">Skills & Tools</h2>
               <div className="space-y-6">
                 {skills.map((skill) => (
                   <div key={skill.category} className="flex items-center">
-                    <p className="flex-shrink-0 text-[1.375rem] font-medium text-brand-dark px-[1.625rem] pt-[0.3rem] pb-[0.4rem] bg-skills-bg rounded-full">{skill.category}</p>
+                    <p className="flex-shrink-0 text-[1.375rem] font-medium text-brand-dark px-[1.625rem] pt-[0.3rem] pb-[0.4rem] bg-skills-bg rounded-full">{skill.category}</p> 
                     <div className="flex flex-wrap gap-[0.625rem] ml-4">
                       {skill.tools.map((tool) => (
-                        <div key={tool} className="flex items-center gap-1 px-[0.9375rem] py-[0.625rem] bg-tool-bg rounded-full">
-                          {/* 3. ▼▼▼▼▼ 아이콘이 있을 때만 렌더링하고, 없으면 아무것도 표시하지 않습니다. ▼▼▼▼▼ */}
+                        <div key={tool} className="flex items-center gap-1.5 px-3 py-1.5 bg-white/60 rounded-full backdrop-blur-sm">
                           {skillIcons[tool] && (
                             <span className="w-5 h-5 flex items-center justify-center text-brand-dark">{skillIcons[tool]}</span>
                           )}
-                          <span className="text-base font-medium text-brand-dark">{tool}</span>
+                          <span className="text-sm font-medium text-brand-dark">{tool}</span>
                         </div>
                       ))}
                     </div>

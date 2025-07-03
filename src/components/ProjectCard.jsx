@@ -15,10 +15,8 @@ const ProjectCard = ({ project, onCardClick }) => {
   const { thumbnail, title, description, tags } = project;
 
   return (
-    // 2. ▼▼▼▼▼ 가장 바깥쪽을 div로 감싸고, group과 relative를 추가합니다. ▼▼▼▼▼
     <div className="group relative transition-transform duration-300 ease-out hover:-translate-y-[10px]">
-      {/* 기존 카드 내용은 그대로 유지됩니다. */}
-      <div className={`bg-white/10 backdrop-blur-[20px] rounded-lg shadow-md overflow-hidden text-left w-full`}>
+      <div className={`bg-white/10 backdrop-blur-[20px] rounded-lg shadow overflow-hidden text-left w-full`}>
         <div className="w-full h-60 bg-gray-200">
           <img src={thumbnail} alt={`${title} 썸네일`} className="w-full h-full object-cover object-top" />
         </div>
@@ -38,7 +36,6 @@ const ProjectCard = ({ project, onCardClick }) => {
         className="absolute inset-0 bg-[#EAEFF5]/80 backdrop-blur-[20px] rounded-lg flex flex-col items-center justify-center p-6 text-center
                    opacity-0 group-hover:opacity-100 transition-opacity duration-300"
       >
-        {/* ▼▼▼▼▼ 이 h3 태그의 className을 수정했습니다. ▼▼▼▼▼ */}
         <h3 className="text-xl font-bold mb-[1.2rem] text-gray-800">{title}</h3>
         
         <button 

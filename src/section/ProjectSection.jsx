@@ -398,7 +398,7 @@ const projects = [
     gradient: { from: '#83797E', to: '#D2BFBD' },
     tags: ['솔로', '사이드'],
     category: 'Solo',
-    githubUrl: 'https://github.com/forqls/vplay.git',/////////////////////////////////////////////////삽입하기
+    githubUrl: 'https://github.com/forqls/portfolio_2023.git',
     deployUrl: 'https://vplay-ebcf.onrender.com',///////////////////////////////////삽입하기
     myRole: [
       {
