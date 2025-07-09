@@ -68,9 +68,5 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed; /* ★★★ 바로 이 한 줄이 마법의 핵심! ★★★ */
-  background-color: #E9EDF5; /* 이미지가 로딩되기 전이나, 이미지가 화면을 다 못 채울 경우를 대비한 배경색 */
-}
-
-.fixed-background {
-  background-position: center calc(50% + var(--bg-offset));
+  background-color: #E9EDF5; /* 이미지가 로딩되기 전, 혹은 화면을 다 못 채울 경우를 대비한 배경색 */
 }
