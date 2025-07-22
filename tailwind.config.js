@@ -44,7 +44,11 @@ export default {
       'sans': ['Noto Sans KR', 'sans-serif'], 
       'dynapuff': ['DynaPuff', 'sans-serif'], 
     },
+    zIndex: {
+    '-1': '-1', // ✅ 요 줄 추가!!
+  },
     },
   },
+  
   plugins: [],
 }
