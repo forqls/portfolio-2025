@@ -26,8 +26,8 @@ function App() {
   // 2. 콘텐츠 전체를 감싸는 div를 가리킬 변수
   const contentRef = useRef(null);
 
-
-  useEffect(() => {
+///
+useEffect(() => {
   gsap.registerPlugin(ScrollTrigger);
 
   const lenis = new Lenis({ smooth: true });
@@ -37,27 +37,47 @@ function App() {
   }
   requestAnimationFrame(raf);
 
-  const bg = document.querySelector('[data-speed]');
-  if (!bg) return;
-
-  const speed = parseFloat(bg.dataset.speed);
-
-  // ✅ ScrollTrigger 인스턴스 저장
-  const trigger = gsap.to(bg, {
-    y: () => (1 - speed) * ScrollTrigger.maxScroll(window),
-    ease: 'none',
-    scrollTrigger: {
-      start: 0,
-      end: "max",
-      scrub: true,
-    },
+  // Parallax 처리
+  const elements = document.querySelectorAll('[data-speed]');
+  elements.forEach((el) => {
+    const speed = parseFloat(el.dataset.speed);
+    gsap.to(el, {
+      yPercent: -(1 - speed) * 100,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: contentRef.current,
+        start: 'top top',
+        end: 'bottom bottom',
+        scrub: true,
+      },
+    });
   });
+}, []);
 
-  // ✅ cleanup 함수에서 해당 인스턴스 제거
+
+
+///
+
+useEffect(() => {
+  const updateContentHeight = () => {
+    if (contentRef.current) {
+      setContentHeight(contentRef.current.scrollHeight);
+    }
+  };
+
+  // 콘텐츠 렌더 후, 이미지까지 로드된 다음 높이 정확히 계산
+  window.addEventListener('load', updateContentHeight);
+  window.addEventListener('resize', updateContentHeight);
+  setTimeout(updateContentHeight, 1000); // 이미지 렌더 지연 고려
+
   return () => {
-    trigger.scrollTrigger?.kill(); // ← 이게 정답!
+    window.removeEventListener('load', updateContentHeight);
+    window.removeEventListener('resize', updateContentHeight);
   };
 }, []);
+
+///
+
 
 
 
@@ -97,30 +117,38 @@ function App() {
   return (
     // ▼▼▼▼▼ 가장 바깥 div에서 배경색 클래스를 삭제! ▼▼▼▼▼
     <div>
+
+
       {/* --- 배경 레이어 --- */}
-      <div
-      data-speed="0.3" 
-        // ▼▼▼▼▼ 여기에 배경색을 추가해서 이미지 로딩 전에도 색이 보이도록 함 ▼▼▼▼▼
-        className="fixed top-0 left-0 w-full z-[-10] bg-cover bg-center bg-[#E9EDF5]"
-        style={{
-          backgroundImage: `url('/background_large.png')`,
-          height: `${contentHeight}px`,
-        }}
-      />
+      <div className="fixed w-full top-0 left-0 z-[-10] overflow-hidden pointer-events-none bg-[#E9EDF5]" style={{ height: `${contentHeight}px` }}>
+  {/* 배경 이미지 1 */}
+  <div
+    data-speed="0.4"
+    className="absolute top-0 left-0 w-full h-screen bg-cover bg-no-repeat bg-top"
+    style={{ backgroundImage: "url('/background.png')" }}
+  />
+  
+  {/* 배경 이미지 2 - 이어지는 하단 */}
+  <div
+    data-speed="0.2"
+    className="absolute top-[100vh] left-0 w-full h-screen bg-cover bg-no-repeat bg-top"
+    style={{ backgroundImage: "url('/background_footer.png')" }}
+  />
+</div>
+
 
       {/* --- 콘텐츠 레이어 --- */}
-      <div ref={contentRef}>
-        <Header />
-        <main>
-          <LandingPage />
-          <AboutMeSection />
-          <ProjectSection />
-          <CareerEducationSection />
-          <ThankYouSection />
-        </main>
-        <Footer />
-        <FixedButtons />
-      </div>
+     <div ref={contentRef} className="relative z-10">
+  <Header />
+  <main>
+    <LandingPage />
+    <AboutMeSection />
+    <ProjectSection />
+    <CareerEducationSection />
+    <ThankYouSection />
+  </main>
+  <Footer/>
+</div>
     </div>
   );
 }

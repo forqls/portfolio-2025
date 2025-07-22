@@ -1,14 +1,17 @@
 // src/components/Footer.jsx
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 
 const Footer = () => {
+ 
+
   return (
-    // ▼▼▼ 푸터에 직접 두 번째 배경 이미지를 적용! ▼▼▼
-   <footer className="w-full h-48 bg-transparent flex items-center justify-center">
-      <p className="text-sm text-gray-500">
-        Copyright 2025. AnHyobin All Rights Reserved.
-      </p>
-    </footer>
+    <footer className="relative w-full h-64 flex items-center justify-center bg-transparent">
+  <p className="text-sm text-gray-500">
+    Copyright 2025. AnHyobin All Rights Reserved.
+  </p>
+</footer>
   );
 };
 
