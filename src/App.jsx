@@ -12,13 +12,10 @@ import FixedButtons from './components/FixedButtons.jsx';
 import Footer from './components/Footer.jsx';
 import ParallaxBackground from './components/ParallaxBackground.jsx'; 
 
+
 function App() {
   return (
-  <div>
-      {/* 1. 배경을 책임지는 컴포넌트 */}
-      <ParallaxBackground />
-
-      {/* 2. 모든 실제 내용을 담는 콘텐츠 */}
+ <ParallaxBackground>
       <Header />
       <main>
         <LandingPage />
@@ -29,7 +26,7 @@ function App() {
       </main>
       <Footer />
       <FixedButtons />
-    </div>
+    </ParallaxBackground>
   );
 }
 
