@@ -26,13 +26,9 @@ const BackgroundController = ({ scrollContainerRef }) => {
       {/* 1. 메인 배경 이미지 (화면 높이만큼) */}
       <div
         className="h-screen w-full bg-cover bg-center"
-        style={{ backgroundImage: 'url(/background.png)' }}
+        style={{ backgroundImage: 'url(/background_large.png)' }}
       />
-      {/* 2. 푸터 배경 이미지 (메인 배경 바로 아래에 붙어있음) */}
-      <div
-        className="h-screen w-full bg-cover bg-center" // 푸터 배경도 충분한 높이를 가짐
-        style={{ backgroundImage: 'url(/background_footer.jpg)' }}
-      />
+      
     </div>
   );
 };
