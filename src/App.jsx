@@ -10,10 +10,15 @@ import CareerEducationSection from './section/CareerEducationSection.jsx';
 import ThankYouSection from './section/ThankYouSection.jsx';
 import FixedButtons from './components/FixedButtons.jsx';
 import Footer from './components/Footer.jsx';
+import ParallaxBackground from './components/ParallaxBackground.jsx'; 
 
 function App() {
   return (
-      <div>
+  <div>
+      {/* 1. 배경을 책임지는 컴포넌트 */}
+      <ParallaxBackground />
+
+      {/* 2. 모든 실제 내용을 담는 콘텐츠 */}
       <Header />
       <main>
         <LandingPage />

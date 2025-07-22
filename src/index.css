@@ -59,19 +59,3 @@
 .list-lower-alpha {
   list-style-type: lower-alpha;
 }
-
-
-/* 배경css */
-body {
-  background-image: url('/background_large.png'); 
-  
-  background-position: center top;
-
-  background-repeat: no-repeat;
-  
-  background-attachment: fixed; 
-
-  background-size: cover; 
-  
-  background-color: #E9EDF5;
-}
