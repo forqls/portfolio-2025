@@ -115,26 +115,42 @@ useEffect(() => {
   }, []);
 
   return (
-    // ▼▼▼▼▼ 가장 바깥 div에서 배경색 클래스를 삭제! ▼▼▼▼▼
-    <div>
+     <div>
+{/* 배경 레이어 (fixed) */}
+<div
+        className="fixed w-full top-0 left-0 z-[-10] overflow-hidden pointer-events-none bg-[#E9EDF5]"
+        style={{ height: `${contentHeight}px` }}
+      >
+        <div className="relative w-full h-full">
+          {/* 배경 이미지 1 */}
+          <div
+            data-speed="0.4"
+            className="absolute top-0 left-0 w-full flex justify-center"
+          >
+            <img
+              src="/background.png"
+              alt="Background"
+              className="w-full h-auto object-contain"
+            />
+          </div>
+
+          {/* 배경 이미지 2 */}
+          <div
+            data-speed="0.2"
+            className="absolute top-[100vh] left-0 w-full flex justify-center"
+          >
+            <img
+              src="/background_footer.png"
+              alt="Footer Background"
+              className="w-full h-auto object-contain"
+            />
+          </div>
+        </div>
+      </div>
 
 
-      {/* --- 배경 레이어 --- */}
-      <div className="fixed w-full top-0 left-0 z-[-10] overflow-hidden pointer-events-none bg-[#E9EDF5]" style={{ height: `${contentHeight}px` }}>
-  {/* 배경 이미지 1 */}
-  <div
-    data-speed="0.4"
-    className="absolute top-0 left-0 w-full h-screen bg-cover bg-no-repeat bg-top"
-    style={{ backgroundImage: "url('/background.png')" }}
-  />
-  
-  {/* 배경 이미지 2 - 이어지는 하단 */}
-  <div
-    data-speed="0.2"
-    className="absolute top-[100vh] left-0 w-full h-screen bg-cover bg-no-repeat bg-top"
-    style={{ backgroundImage: "url('/background_footer.png')" }}
-  />
-</div>
+
+
 
 
       {/* --- 콘텐츠 레이어 --- */}
@@ -147,8 +163,11 @@ useEffect(() => {
     <CareerEducationSection />
     <ThankYouSection />
   </main>
+
+  <FixedButtons/>
   <Footer/>
 </div>
+
     </div>
   );
 }
