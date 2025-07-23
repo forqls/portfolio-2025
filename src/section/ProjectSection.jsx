@@ -51,7 +51,7 @@ const projects = [
       },
       {
         subtitle: 'Spring Security 기반 인증/인가 시스템 구현',
-        details: [ 'JWT(JSON Web Token)와 Bcrypt 암호화를 적용한 회원가입/로그인 API 개발', '관리자(Admin)와 일반사용자(User) 권한을 분리한 역할 기반 접근 제어(RBAC) 적용' ]
+        details: [ '세션(Session) 과 인터셉터(Interceptor), Bcrypt 암호화를 적용한 회원가입/로그인 API 개발', '관리자(Admin)와 일반사용자(User) 권한을 분리한 역할 기반 접근 제어(RBAC) 적용' ]
       },
       {
         subtitle: 'RESTful API 설계 및 개발',
