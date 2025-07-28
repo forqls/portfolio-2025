@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import ProjectCard from '../components/ProjectCard.jsx';
+import CustomModal from '../components/CustomModal.jsx';
 
 
 const CloseIcon = () => (
@@ -487,9 +488,9 @@ const projects = [
         </div>
       </div>
 
-      <Modal isOpen={!!selectedProject} onRequestClose={() => setSelectedProject(null)} contentLabel="프로젝트 상세" closeTimeoutMS={200} className="contents">
-        <div className="relative w-[80vw] h-auto flex items-start">
-          <div className="w-full max-h-[90vh] bg-white rounded-2xl shadow-xl overflow-y-auto invisible-scrollbar">
+<CustomModal isOpen={!!selectedProject} onClose={() => setSelectedProject(null)}>
+  <div className="relative w-[80vw] h-auto flex items-start">
+    <div className="w-full max-h-[90vh] bg-white rounded-2xl shadow-xl overflow-y-auto invisible-scrollbar">
             {selectedProject && (
               <div>
                 {/* --- 모달 상단 --- */}
@@ -639,7 +640,7 @@ const projects = [
 
 
         </div>
-      </Modal>
+      </CustomModal>
     </section>
   );
 };
