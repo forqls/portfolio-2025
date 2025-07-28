@@ -23,7 +23,7 @@ const ExternalLinkIcon = () => (
 </svg>
 );
 
-const ProjectSection = ({ lenisRef }) => { 
+const ProjectSection = () => {
   const [activeFilter, setActiveFilter] = useState('All');
   const [filteredProjects, setFilteredProjects] = useState([]);
   const [selectedProject, setSelectedProject] = useState(null);
@@ -32,7 +32,6 @@ const ProjectSection = ({ lenisRef }) => {
 
 // src/section/ProjectSection.jsx
 const projects = [
-  //1
   {
     id: 1,
     thumbnail: '/vplay_thumbnail.jpg',
@@ -52,11 +51,11 @@ const projects = [
       },
       {
         subtitle: 'Spring Security 기반 인증/인가 시스템 구현',
-        details: [ '세션(Session) 과 인터셉터(Interceptor), Bcrypt 암호화를 적용한 회원가입/로그인 API 개발', '관리자(Admin)와 일반사용자(User) 권한을 분리한 역할 기반 접근 제어(RBAC) 적용' ]
+        details: [ 'JWT(JSON Web Token)와 Bcrypt 암호화를 적용한 회원가입/로그인 API 개발', '관리자(Admin)와 일반사용자(User) 권한을 분리한 역할 기반 접근 제어(RBAC) 적용' ]
       },
       {
         subtitle: 'RESTful API 설계 및 개발',
-        details: [ '제작의뢰문의, 프로젝트 조회 등 핵심 비즈니스 로직 API 구현', '프론트엔드와의 원활한 데이터 통신을 위한 API 명세 작성' ]
+        details: [ '제작의뢰문의, 프로젝트 조회 등 핵심 비즈니스 로직 API 구현', 'React 프론트엔드와의 원활한 데이터 통신을 위한 API 명세 작성' ]
       },
       {
         subtitle: 'UI/UX 기획 및 Figma를 활용한 디자인',
@@ -108,7 +107,6 @@ const projects = [
     erdUrl: '/vplay-erd.png',
     presentationUrl: 'https://gamma.app/docs/-xijy1tv2cayy1z1', 
   },
-  //2
   {
     id: 2,
     thumbnail: '/harmony_thumbnail.jpg',
@@ -184,7 +182,6 @@ const projects = [
     erdUrl: '/givehub-red.png', 
     presentationUrl: 'https://gamma.app/docs/-xijy1tv2cayy1z1', 
   },
-  //3
   {
     id: 3,
     thumbnail: '/dealon_thumbnail.jpg',
@@ -258,7 +255,6 @@ const projects = [
     requirementsUrl: 'https://docs.google.com/spreadsheets/d/1c4-7bCbl1G_mUL8coZmN_slhOcWzjiPjA7iY-IWDqWw/edit?usp=sharing' ,
     erdUrl: '/dealon-erd.png', 
   },
-  //4
   {
     id: 4,
     thumbnail: '/portfolio_thumbnail.jpg',
@@ -320,7 +316,6 @@ const projects = [
     requirementsUrl: 'https://docs.google.com/spreadsheets/d/10CiUG18fGrM2qKxKslMeXjslcGnF8abdkhVaAl-C9Gc/edit?usp=sharing' ,
     erdUrl: '/vplay-erd.png', 
   },
-  //5
   {
     id: 5,
     thumbnail: '/naturelica_thumbnail.jpg',
@@ -393,7 +388,6 @@ const projects = [
       }
     ],
   },
-  //6
   {
     id: 6,
     thumbnail: '/portfolio_old_thumbnail.jpg',
@@ -642,6 +636,7 @@ const projects = [
               </a>
             )}
           </div>
+
 
         </div>
       </Modal>

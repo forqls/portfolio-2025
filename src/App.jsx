@@ -1,7 +1,5 @@
 // src/App.jsx
-
-// 1. useState를 import 해주세요.
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import Lenis from '@studio-freight/lenis';
@@ -17,15 +15,11 @@ import Footer from './components/Footer.jsx';
 
 function App() {
   const contentRef = useRef(null);
-  const bgWrapperRef = useRef(null);
-  const lenisRef = useRef(null); // Lenis 인스턴스를 담을 '리모컨'
+  const bgWrapperRef = useRef(null); // ✅ 배경 전체를 감싸는 div를 위한 ref
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     const lenis = new Lenis({ smooth: true });
-    
-    // 2. 생성된 Lenis 인스턴스를 '리모컨'에 담아줍니다.
-    lenisRef.current = lenis; 
 
     function raf(time) {
       lenis.raf(time);
@@ -33,8 +27,11 @@ function App() {
     }
     requestAnimationFrame(raf);
 
+    // ▼▼▼▼▼ GSAP 애니메이션 로직 수정 ▼▼▼▼▼
+    // 배경 이미지들을 감싸는 하나의 div('.bg-wrapper')만 애니메이션 처리합니다.
     if (bgWrapperRef.current) {
       gsap.to(bgWrapperRef.current, {
+        // y축으로 (배경 전체 높이 - 화면 높이) 만큼만 움직이도록 설정
         y: () => -(bgWrapperRef.current.clientHeight - window.innerHeight),
         ease: 'none',
         scrollTrigger: {
@@ -45,24 +42,27 @@ function App() {
         },
       });
     }
+    // ▲▲▲▲▲ 여기까지 수정 ▲▲▲▲▲
   }, []);
 
   return (
     <div ref={contentRef} className="relative z-10 bg-[#E9EDF5]">
       
+      {/* ▼▼▼▼▼ 배경 HTML 구조 수정 ▼▼▼▼▼ */}
       <div className="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
         <div ref={bgWrapperRef} className="absolute top-0 left-0 w-full">
           <img src="/background.png" className="w-full h-auto" alt="" />
           <img src="/background_footer.png" className="w-full h-auto mt-[30rem]" alt="" />
         </div>
       </div>
+      {/* ▲▲▲▲▲ 여기까지 수정 ▲▲▲▲▲ */}
 
+      {/* ✅ 콘텐츠 섹션 */}
       <Header />
       <main>
         <LandingPage />
         <AboutMeSection />
-        {/* 3. ProjectSection에게 Lenis '리모컨'을 props로 전달합니다. */}
-        <ProjectSection lenisRef={lenisRef} />
+        <ProjectSection />
         <CareerEducationSection />
         <ThankYouSection />
       </main>
