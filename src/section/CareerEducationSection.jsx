@@ -62,8 +62,8 @@ const educationData = [
 
 const careerData = [
   {
-    title: '(주)이씨씨플라자',
-    subtitle: 'e-메디어사업팀 · 웹 구축',
+    title: '(주)이씨플라자',
+    subtitle: 'e-미디어사업팀 · 웹 구축',
     details: [
       'HTML과 CSS를 기반으로 웹 접근성 및 표준을 고려한 비용산정솔루션 유지보수 작업 수행.',
       '기획자와의 원활한 협업을 위해 다양한 방법을 강구했으며, 지속적인 커뮤니케이션을 통해 프로젝트의 완성도를 높임',

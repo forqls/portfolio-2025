@@ -23,7 +23,7 @@ const ExternalLinkIcon = () => (
 </svg>
 );
 
-const ProjectSection = () => {
+const ProjectSection = ({ lenisRef }) => { 
   const [activeFilter, setActiveFilter] = useState('All');
   const [filteredProjects, setFilteredProjects] = useState([]);
   const [selectedProject, setSelectedProject] = useState(null);
@@ -459,19 +459,19 @@ const projects = [
     setFilteredProjects(allProjects);
   }, [activeFilter]);
   
-  // useEffect(() => {
-  //   // selectedProject에 데이터가 있으면(모달이 열리면) true
-  //   if (selectedProject) {
-  //     document.body.style.overflow = 'hidden'; // body의 스크롤을 막습니다.
-  //   } else {
-  //     document.body.style.overflow = 'unset'; // body의 스크롤을 다시 허용합니다.
-  //   }
+  useEffect(() => {
+    // selectedProject에 데이터가 있으면(모달이 열리면) true
+    if (selectedProject) {
+      document.body.style.overflow = 'hidden'; // body의 스크롤을 막습니다.
+    } else {
+      document.body.style.overflow = 'unset'; // body의 스크롤을 다시 허용합니다.
+    }
 
-  //   // 컴포넌트가 사라질 때 원래대로 돌려놓는 정리(cleanup) 함수
-  //   return () => {
-  //     document.body.style.overflow = 'unset';
-  //   };
-  // }, [selectedProject]);
+    // 컴포넌트가 사라질 때 원래대로 돌려놓는 정리(cleanup) 함수
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [selectedProject]);
 
   const filters = ['All', 'Team', 'Single'];
 
@@ -642,7 +642,6 @@ const projects = [
               </a>
             )}
           </div>
-
 
         </div>
       </Modal>
