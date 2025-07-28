@@ -84,3 +84,9 @@ body.modal-open #root {
   filter: blur(4px);
 }
 
+.overflow-y-auto{
+  overflow-y: auto;
+max-height: 90vh;
+position: relative;
+
+}

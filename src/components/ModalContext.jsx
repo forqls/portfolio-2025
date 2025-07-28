@@ -1,4 +1,5 @@
 // src/components/ModalContext.jsx
+//모달 열림/닫힘 상태를 전역에서 관리하기 위한 파일
 import React, { createContext, useContext, useState } from 'react';
 
 const ModalContext = createContext();
