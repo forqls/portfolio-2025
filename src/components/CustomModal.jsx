@@ -25,17 +25,17 @@ const CustomModal = ({ isOpen, onClose, selectedProject }) => {
   if (!selectedProject) return null;
 
   return (
-    <ReactModal
-      isOpen={isOpen}
-      onRequestClose={onClose}
-      className="!outline-none"
-      overlayClassName="fixed inset-0 z-50 bg-black/30 backdrop-blur-sm flex items-center justify-center"
-      portalClassName="modal-portal"
-      ariaHideApp={false}
-    >
+<ReactModal
+  isOpen={isOpen}
+  onRequestClose={onClose}
+  className="!outline-none"
+  overlayClassName="fixed inset-0 z-50 bg-black/30 backdrop-blur-sm flex items-center justify-center"
+  portalClassName="modal-portal"
+  ariaHideApp={false}
+>
       <div className="relative w-[80vw] h-[90vh] flex items-start">
         <div
-          className="w-full h-full invisible-scrollbar overflow-y-auto rounded-2xl shadow-xl bg-white"
+          className="w-full h-full invisible-scrollbar overflow-y-auto rounded-2xl shadow-xl bg-white overflow-y-auto"
           style={{ maxHeight: '90vh', position: 'relative' }}
           onClick={(e) => e.stopPropagation()}
         >

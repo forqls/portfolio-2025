@@ -1,4 +1,3 @@
-// App.jsx
 import React, { useRef, useEffect } from 'react';
 import Lenis from '@studio-freight/lenis';
 import gsap from 'gsap';
@@ -12,12 +11,13 @@ import CareerEducationSection from './section/CareerEducationSection.jsx';
 import ThankYouSection from './section/ThankYouSection.jsx';
 import FixedButtons from './components/FixedButtons.jsx';
 import Footer from './components/Footer.jsx';
-import { ModalProvider } from './components/ModalContext.jsx';
+import { ModalProvider } from './components/ModalContext';
 
 function AppContent() {
   const contentRef = useRef(null);
   const bgWrapperRef = useRef(null);
 
+  // 🔥 Lenis 초기화 (부드러운 스크롤용)
   useEffect(() => {
     const lenis = new Lenis({ smooth: true });
 
@@ -29,8 +29,9 @@ function AppContent() {
     requestAnimationFrame(raf);
 
     return () => lenis.destroy();
-  }, []);
+  }, []); // ← 여기! useEffect는 컴포넌트 안에서 사용해야해유~
 
+  // 🔽 여긴 기존 GSAP ScrollTrigger 부분 유지해도 됨
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
@@ -72,7 +73,6 @@ function AppContent() {
   );
 }
 
-// ✅ AppContent를 감싸주는 App 함수 필수!
 function App() {
   return (
     <ModalProvider>
