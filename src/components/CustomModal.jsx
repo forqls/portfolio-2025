@@ -1,6 +1,4 @@
 import ReactModal from 'react-modal';
-import ReactDOM from 'react-dom';
-
 
 const CustomModal = ({ isOpen, onClose, children }) => {
   return (

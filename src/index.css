@@ -77,7 +77,7 @@
 }
 
 body.modal-open {
-  overflow: hidden; /* 이건 꼭 있어야 패럴럭스 배경이 뒤에서 안 움직여유 */
+  overflow: hidden; 
 }
 
 body.modal-open #root {

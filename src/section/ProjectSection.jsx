@@ -489,8 +489,11 @@ const projects = [
       </div>
 
 <CustomModal isOpen={!!selectedProject} onClose={() => setSelectedProject(null)}>
-  <div className="relative w-[80vw] h-auto flex items-start">
-    <div className="w-full max-h-[90vh] bg-white rounded-2xl shadow-xl overflow-y-auto invisible-scrollbar">
+  <div className="relative w-[80vw] h-[90vh] flex items-start">
+    <div
+      className="w-full h-full invisible-scrollbar overflow-y-auto rounded-2xl shadow-xl bg-white"
+      onClick={(e) => e.stopPropagation()}
+    >
             {selectedProject && (
               <div>
                 {/* --- 모달 상단 --- */}
