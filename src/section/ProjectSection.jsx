@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import ProjectCard from '../components/ProjectCard.jsx';
 import CustomModal from '../components/CustomModal.jsx';
-
+import { useModal } from '../components/ModalContext.jsx'
 
 const CloseIcon = () => (
   <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -28,6 +28,12 @@ const ProjectSection = () => {
   const [activeFilter, setActiveFilter] = useState('All');
   const [filteredProjects, setFilteredProjects] = useState([]);
   const [selectedProject, setSelectedProject] = useState(null);
+
+
+  const { isModalOpen, setIsModalOpen } = useModal();
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
 
 
 
