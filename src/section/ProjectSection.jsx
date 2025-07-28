@@ -32,6 +32,7 @@ const ProjectSection = () => {
 
 // src/section/ProjectSection.jsx
 const projects = [
+  //1
   {
     id: 1,
     thumbnail: '/vplay_thumbnail.jpg',
@@ -55,7 +56,7 @@ const projects = [
       },
       {
         subtitle: 'RESTful API 설계 및 개발',
-        details: [ '제작의뢰문의, 프로젝트 조회 등 핵심 비즈니스 로직 API 구현', 'React 프론트엔드와의 원활한 데이터 통신을 위한 API 명세 작성' ]
+        details: [ '제작의뢰문의, 프로젝트 조회 등 핵심 비즈니스 로직 API 구현', '프론트엔드와의 원활한 데이터 통신을 위한 API 명세 작성' ]
       },
       {
         subtitle: 'UI/UX 기획 및 Figma를 활용한 디자인',
@@ -107,6 +108,7 @@ const projects = [
     erdUrl: '/vplay-erd.png',
     presentationUrl: 'https://gamma.app/docs/-xijy1tv2cayy1z1', 
   },
+  //2
   {
     id: 2,
     thumbnail: '/harmony_thumbnail.jpg',
@@ -182,6 +184,7 @@ const projects = [
     erdUrl: '/givehub-red.png', 
     presentationUrl: 'https://gamma.app/docs/-xijy1tv2cayy1z1', 
   },
+  //3
   {
     id: 3,
     thumbnail: '/dealon_thumbnail.jpg',
@@ -255,6 +258,7 @@ const projects = [
     requirementsUrl: 'https://docs.google.com/spreadsheets/d/1c4-7bCbl1G_mUL8coZmN_slhOcWzjiPjA7iY-IWDqWw/edit?usp=sharing' ,
     erdUrl: '/dealon-erd.png', 
   },
+  //4
   {
     id: 4,
     thumbnail: '/portfolio_thumbnail.jpg',
@@ -316,6 +320,7 @@ const projects = [
     requirementsUrl: 'https://docs.google.com/spreadsheets/d/10CiUG18fGrM2qKxKslMeXjslcGnF8abdkhVaAl-C9Gc/edit?usp=sharing' ,
     erdUrl: '/vplay-erd.png', 
   },
+  //5
   {
     id: 5,
     thumbnail: '/naturelica_thumbnail.jpg',
@@ -388,6 +393,7 @@ const projects = [
       }
     ],
   },
+  //6
   {
     id: 6,
     thumbnail: '/portfolio_old_thumbnail.jpg',
@@ -453,19 +459,19 @@ const projects = [
     setFilteredProjects(allProjects);
   }, [activeFilter]);
   
-  useEffect(() => {
-    // selectedProject에 데이터가 있으면(모달이 열리면) true
-    if (selectedProject) {
-      document.body.style.overflow = 'hidden'; // body의 스크롤을 막습니다.
-    } else {
-      document.body.style.overflow = 'unset'; // body의 스크롤을 다시 허용합니다.
-    }
+  // useEffect(() => {
+  //   // selectedProject에 데이터가 있으면(모달이 열리면) true
+  //   if (selectedProject) {
+  //     document.body.style.overflow = 'hidden'; // body의 스크롤을 막습니다.
+  //   } else {
+  //     document.body.style.overflow = 'unset'; // body의 스크롤을 다시 허용합니다.
+  //   }
 
-    // 컴포넌트가 사라질 때 원래대로 돌려놓는 정리(cleanup) 함수
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [selectedProject]);
+  //   // 컴포넌트가 사라질 때 원래대로 돌려놓는 정리(cleanup) 함수
+  //   return () => {
+  //     document.body.style.overflow = 'unset';
+  //   };
+  // }, [selectedProject]);
 
   const filters = ['All', 'Team', 'Single'];
 
