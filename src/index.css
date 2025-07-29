@@ -77,7 +77,9 @@
 }
 
 body.modal-open {
-  overflow: hidden; 
+  overflow: hidden !important;
+  position: fixed !important;
+  width: 100% !important;
 }
 
 body.modal-open #root {
@@ -97,3 +99,10 @@ position: relative;
 .invisible-scrollbar::-webkit-scrollbar {
   display: none; /* Chrome, Safari */
 }
+
+.ReactModal__Body--open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+

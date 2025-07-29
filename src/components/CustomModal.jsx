@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactModal from 'react-modal';
 
 const CloseIcon = () => (
@@ -22,6 +22,14 @@ const ExternalLinkIcon = () => (
 
 
 const CustomModal = ({ isOpen, onClose, selectedProject }) => {
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add('modal-open');
+    } else {
+      document.body.classList.remove('modal-open');
+    }
+  }, [isOpen]);
+
   if (!selectedProject) return null;
 
   return (
