@@ -1,4 +1,4 @@
-// client/src/components/ProjectCard.jsx
+// src/components/ProjectCard.jsx
 import React from 'react';
 
 // '자세히 보기'에 사용할 아이콘
@@ -7,7 +7,6 @@ const DetailIcon = () => (
 );
 
 const ProjectCard = ({ project, onCardClick }) => {
-  // 1. ▼▼▼▼▼ 오류 방지 코드: project 데이터가 없을 경우 아무것도 보여주지 않음 ▼▼▼▼▼
   if (!project) {
     return null; 
   }
@@ -31,7 +30,7 @@ const ProjectCard = ({ project, onCardClick }) => {
         </div>
       </div>
 
-       {/* 마우스를 올렸을 때 나타날 콘텐츠 오버레이 */}
+      {/* 마우스를 올렸을 때 나타날 콘텐츠 오버레이 */}
       <div 
         className="absolute inset-0 bg-[#EAEFF5]/80 backdrop-blur-[20px] rounded-lg flex flex-col items-center justify-center p-6 text-center
                    opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -39,7 +38,10 @@ const ProjectCard = ({ project, onCardClick }) => {
         <h3 className="text-xl font-bold mb-[1.2rem] text-gray-800">{title}</h3>
         
         <button 
-          onClick={() => onCardClick(project)}
+          // 👇 ★★★ 바로 여기가 수정된 부분! ★★★
+          // onCardClick은 이미 어떤 프로젝트를 열어야 하는지 알고 있는 완성된 함수야.
+          // 그러니 그냥 onCardClick 자체를 실행시켜주면 돼!
+          onClick={onCardClick}
           className="inline-flex items-center px-6 py-2 bg-white text-black font-semibold rounded-full"
         >
           자세히 보기

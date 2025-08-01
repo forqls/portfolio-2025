@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import ReactModal from 'react-modal';
-
 const CloseIcon = () => (
   <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -22,25 +21,19 @@ const ExternalLinkIcon = () => (
 
 
 const CustomModal = ({ isOpen, onClose, selectedProject }) => {
-  useEffect(() => {
-    if (isOpen) {
-      document.body.classList.add('modal-open');
-    } else {
-      document.body.classList.remove('modal-open');
-    }
-  }, [isOpen]);
+
 
   if (!selectedProject) return null;
 
   return (
-<ReactModal
-  isOpen={isOpen}
-  onRequestClose={onClose}
-  className="!outline-none"
-  overlayClassName="fixed inset-0 z-50 bg-black/30 backdrop-blur-sm flex items-center justify-center"
-  portalClassName="modal-portal"
-  ariaHideApp={false}
->
+ <ReactModal
+      isOpen={isOpen}
+      onRequestClose={onClose}
+      parentSelector={() => document.getElementById('modal-root')}
+      className="!outline-none"
+      overlayClassName="fixed inset-0 z-50 bg-black/30 backdrop-blur-sm flex items-center justify-center"
+      ariaHideApp={false}
+    >
       <div className="relative w-[80vw] h-[90vh] flex items-start">
         <div
           className="w-full h-full invisible-scrollbar overflow-y-auto rounded-2xl shadow-xl bg-white overflow-y-auto"
