@@ -26,7 +26,7 @@ const CustomModal = ({ isOpen, onClose, selectedProject }) => {
   if (!selectedProject) return null;
 
   return (
- <ReactModal
+<ReactModal
       isOpen={isOpen}
       onRequestClose={onClose}
       parentSelector={() => document.getElementById('modal-root')}
@@ -34,24 +34,27 @@ const CustomModal = ({ isOpen, onClose, selectedProject }) => {
       overlayClassName="fixed inset-0 z-50 bg-black/30 backdrop-blur-sm flex items-center justify-center"
       ariaHideApp={false}
     >
+      {/* 1. 모달의 전체적인 위치와 크기를 담당하는 컨테이너 */}
       <div className="relative w-[80vw] h-[90vh] flex items-start">
+        
+        {/* 👇 ★★★ 여기가 완전히 새로워진 부분! ★★★ */}
+        {/* 2. 실제 콘텐츠를 담는 박스. 이 박스 자체는 스크롤되지 않아. */}
         <div
-          className="w-full h-full invisible-scrollbar overflow-y-auto rounded-2xl shadow-xl bg-white overflow-y-auto"
-          style={{ maxHeight: '90vh', position: 'relative' }}
+          className="w-full h-full rounded-2xl shadow-xl bg-white flex flex-col overflow-hidden" // 👈 flex-col과 overflow-hidden 추가!
           onClick={(e) => e.stopPropagation()}
         >
-          {selectedProject && (
-              <div>
-                {/* --- 모달 상단 --- */}
-                <div className="w-full text-center text-white pt-20 px-12 pb-12" style={{backgroundImage: `linear-gradient(to bottom right, ${selectedProject.gradient?.from || '#4A5568'}, ${selectedProject.gradient?.to || '#2D3748'})`}}>
-                    <div className="inline-block w-full max-w-lg h-auto rounded-lg shadow-lg mb-11"> <img src={selectedProject.thumbnail} alt={`${selectedProject.title} 썸네일`} className="w-full h-full object-cover rounded-md" /></div>
-                    <h2 className="text-[1.625rem] font-bold mb-6 text-white">{selectedProject.title}</h2>
-                    <p className="text-base text-white mb-6">{selectedProject.description}</p>
-                    <p className="text-sm font-medium text-white mb-6"><span>{selectedProject.period}</span><span className="ml-2.5">[{selectedProject.headcount}]</span></p>
-                    <div className="flex flex-wrap items-center justify-center gap-2">
-                        {selectedProject.tags.map((tag, index) => ( <span key={index} className="px-3 py-1 bg-[#E9EDF5]/60 text-brand-dark rounded-full text-xs font-medium backdrop-blur-sm">{tag}</span> ))}
-                    </div>
-                </div>
+          {/* 3. 모달 상단 (헤더). 이 부분은 스크롤되지 않고 고정돼. */}
+          <div className="w-full text-center text-white pt-20 px-12 pb-12" style={{backgroundImage: `linear-gradient(to bottom right, ${selectedProject.gradient?.from || '#4A5568'}, ${selectedProject.gradient?.to || '#2D3748'})`}}>
+            <div className="inline-block w-full max-w-lg h-auto rounded-lg shadow-lg mb-11">
+              <img src={selectedProject.thumbnail} alt={`${selectedProject.title} 썸네일`} className="w-full h-full object-cover rounded-md" />
+            </div>
+            <h2 className="text-[1.625rem] font-bold mb-6 text-white">{selectedProject.title}</h2>
+            <p className="text-base text-white mb-6">{selectedProject.description}</p>
+            <p className="text-sm font-medium text-white mb-6"><span>{selectedProject.period}</span><span className="ml-2.5">[{selectedProject.headcount}]</span></p>
+            <div className="flex flex-wrap items-center justify-center gap-2">
+              {selectedProject.tags.map((tag, index) => ( <span key={index} className="px-3 py-1 bg-[#E9EDF5]/60 text-brand-dark rounded-full text-xs font-medium backdrop-blur-sm">{tag}</span> ))}
+            </div>
+          </div>
                 {/* --- 모달 하단 --- */}
                 <div className="space-y-12 text-left p-12 md:p-16 lg:p-20">
                   {/* 주요 역할 섹션 */}
@@ -147,6 +150,7 @@ const CustomModal = ({ isOpen, onClose, selectedProject }) => {
               </div>
             )}
         </div>
+        
 
         {/* 버튼 그룹도 유지해줘유 */}
         <div className="absolute top-6 -right-20 flex flex-col items-center gap-4">

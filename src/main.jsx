@@ -4,14 +4,19 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
 import './index.css';
-import Modal from 'react-modal'; // 👈 1. react-modal을 import 해줘.
+import Modal from 'react-modal';
+// 👇 1. App.jsx에서 이사 온 ModalProvider를 여기서 import 해줘.
+import { ModalProvider } from './components/ModalContext.jsx';
 
-// 👇 ★★★ 바로 여기가 모든 문제의 해결책! ★★★
-// "우리 리액트 앱의 본체는 'root'라는 ID를 가진 요소야!" 라고 등록해주는 거야.
 Modal.setAppElement('#root');
 
 ReactDOM.createRoot(document.getElementById('root')).render(
+  // ⛔️ StrictMode는 여전히 주석 처리해두자.
   // <React.StrictMode>
-    <App />
+    // 👇 2. <App />을 <ModalProvider>로 감싸주면,
+    // 이제 App과 그 안의 모든 자식들이 모달 상태를 공유받을 수 있어!
+    <ModalProvider>
+      <App />
+    </ModalProvider>
   // </React.StrictMode>
 );

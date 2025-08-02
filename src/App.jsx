@@ -13,7 +13,7 @@ import CareerEducationSection from './section/CareerEducationSection.jsx';
 import ThankYouSection from './section/ThankYouSection.jsx';
 import FixedButtons from './components/FixedButtons.jsx';
 import Footer from './components/Footer.jsx';
-import { ModalProvider, useModal } from './components/ModalContext';
+import { useModal } from './components/ModalContext';
 import CustomModal from './components/CustomModal';
 
 function App() {
@@ -71,7 +71,7 @@ function App() {
   return (
     <>
       <div ref={contentRef} className="relative z-10 bg-[#E9EDF5]">
-        <div className="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
+        <div className="fixed inset-0 z[-1] overflow-hidden pointer-events-none">
           <div ref={bgWrapperRef} className="absolute top-0 left-0 w-full">
             <img src="/background.png" className="w-full h-auto" alt="" />
             <img src="/background_footer.png" className="w-full h-auto mt-[30rem]" alt="" />
@@ -99,12 +99,5 @@ function App() {
   );
 }
 
-function AppWrapper() {
-  return (
-    <ModalProvider>
-      <App />
-    </ModalProvider>
-  );
-}
-
-export default AppWrapper;
+// App을 직접 export 하도록 수정
+export default App;
