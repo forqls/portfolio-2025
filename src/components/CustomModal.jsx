@@ -34,7 +34,8 @@ const CustomModal = ({ isOpen, onClose, selectedProject }) => {
     >
       <div className="relative w-[80vw] h-[90vh] flex items-start">
         {/* ▼▼▼ 1. 콘텐츠 박스 구조 변경 ▼▼▼ */}
-        <div className="w-full h-full rounded-2xl shadow-xl bg-white flex flex-col overflow-hidden">
+        <div className="w-full h-full rounded-2xl shadow-xl bg-white overflow-y-auto invisible-scrollbar">
+        
           {/* 모달 상단 (헤더) - 스크롤 X */}
           <div className="w-full text-center text-white pt-12 px-12 pb-12" style={{backgroundImage: `linear-gradient(to bottom right, ${selectedProject.gradient?.from || '#4A5568'}, ${selectedProject.gradient?.to || '#2D3748'})`}}>
             <div className="inline-block w-full max-w-lg h-auto rounded-lg shadow-lg mb-8">
@@ -125,7 +126,7 @@ const CustomModal = ({ isOpen, onClose, selectedProject }) => {
                       <a href={selectedProject.requirementsUrl} target="_blank" rel="noopener noreferrer" className="text-base text-blue-600 hover:underline">[요구사항 정의서]</a>
                     )}
                     {selectedProject.erdUrl && (
-                      <a href={selected.erdUrl} target="_blank" rel="noopener noreferrer" className="text-base text-blue-600 hover:underline">[ERD 설계도]</a>
+                      <a href={selectedProject.erdUrl} target="_blank" rel="noopener noreferrer" className="text-base text-blue-600 hover:underline">[ERD 설계도]</a>
                     )}
                     {selectedProject.presentationUrl && (
                       <a href={selectedProject.presentationUrl} target="_blank" rel="noopener noreferrer" className="text-base text-blue-600 hover:underline">[초기 기획 PPT]</a>

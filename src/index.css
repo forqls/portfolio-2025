@@ -76,35 +76,18 @@
   height: 100%;
 }
 
-/* body.modal-open {
-  overflow: hidden !important;
-} */
 
 body.modal-open #root {
   filter: blur(4px);
 }
 
-.overflow-y-auto{
-  overflow-y: auto;
-max-height: 90vh;
-position: relative;
+body {
+  overflow: hidden;
 }
 
-.invisible-scrollbar {
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE 10+ */
-}
-.invisible-scrollbar::-webkit-scrollbar {
-  display: none; /* Chrome, Safari */
-}
-
-
-.modal-wrapper {
-  overflow-y: auto; /* 세로 스크롤을 자동으로 생성 */
-  -webkit-overflow-scrolling: touch; /* 모바일에서 부드러운 스크롤을 위함 */
-}
-
-.modal-content {
-  max-height: 80vh; /* 모달창의 최대 높이를 화면의 80%로 제한 */
-  overflow-y: auto;   /* 내용이 많으면 스크롤 생성 */
+/* lenis가 제어할 스크롤 컨테이너 스타일 */
+#scroll-wrapper {
+  height: 100vh;
+  overflow-y: auto; /* 여기가 진짜 스크롤바를 가짐 */
+  -webkit-overflow-scrolling: touch; /* 모바일에서 부드러운 스크롤 */
 }
