@@ -10,7 +10,7 @@ export const projects = [
     tags: ['팀', '메인'],
     category: 'Team',
     githubUrl: 'https://github.com/forqls/vplay.git',
-    deployUrl: 'https://vplay-ebcf.onrender.com',
+    deployUrl: 'https://vplay-production-8d51.up.railway.app/',
     myRole: [
       {
         subtitle: 'ERD 설계 및 Oracle DB 구축',
