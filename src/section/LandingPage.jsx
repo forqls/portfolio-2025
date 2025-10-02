@@ -1,6 +1,5 @@
 // client/src/section/LandingPage.jsx
 import React from 'react';
-import Header from '../components/Header.jsx'; 
 
 
 function LandingPage() {
@@ -8,7 +7,6 @@ function LandingPage() {
     <section id="landing-page"
       className="h-screen bg-transparent"
     >
-      <Header />
 
       <div className="h-full flex flex-col items-center justify-center text-center -mt-12">
         
