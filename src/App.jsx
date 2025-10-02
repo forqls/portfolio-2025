@@ -43,12 +43,12 @@ function App() {
       // 3. 배경 애니메이션이 새 주인을 기준으로 다시 동작하도록 설정
       if (bgWrapperRef.current && contentRef.current) {
         gsap.to(bgWrapperRef.current, {
-          y: () => -(bgWrapperRef.current.clientHeight - scrollWrapperRef.current.clientHeight),
+          y: '-20%',
           ease: 'none',
           scrollTrigger: {
             trigger: contentRef.current,
             start: 'top top',
-            end: 'bottom bottom',
+            end: 'bottom top', 
             scrub: true,
           },
         });
