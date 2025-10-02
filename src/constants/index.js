@@ -160,7 +160,6 @@ export const projects = [
     tags: ['팀', '사이드', '진행중'],
     category: 'Team',
     githubUrl: 'https://github.com/castleBell0921/dealon.git',
-    deployUrl: 'https://vplay-ebcf.onrender.com',////////////////////////////////////////////////////////미완
     myRole: [
       {
         subtitle: 'ERD 설계 및 Oracle DB 구축',
@@ -233,7 +232,7 @@ export const projects = [
     tags: ['솔로', '사이드'],
     category: 'Solo',
     githubUrl: 'https://github.com/castleBell0921/dealon.git',
-    deployUrl: 'https://vplay-ebcf.onrender.com',////////////////////////////////////////////////////////미완
+    deployUrl: 'https://portfolio-2025-pearl-two.vercel.app/',
     myRole: [
       {
         subtitle: 'React 기반 동적 UI/UX 개발',
@@ -280,8 +279,6 @@ export const projects = [
         learned: `이 프로젝트는 제게 React와 현대 프론트엔드 개발에 대한 깊은 이해를 선물했습니다. 이제는 단순히 기능을 구현하는 것을 넘어, 사용자 경험을 고려한 동적인 UI를 설계하고 구축할 수 있는 자신감을 얻었습니다. 또한, 낯선 기술에 대한 두려움 없이 주도적으로 학습하고 문제를 해결하는 저만의 성장 사이클을 만들 수 있었습니다.`
       }
     ],
-    requirementsUrl: 'https://docs.google.com/spreadsheets/d/10CiUG18fGrM2qKxKslMeXjslcGnF8abdkhVaAl-C9Gc/edit?usp=sharing' ,
-    erdUrl: '/vplay-erd.png', 
   },
   {
     id: 5,
@@ -366,7 +363,7 @@ export const projects = [
     tags: ['솔로', '사이드'],
     category: 'Solo',
     githubUrl: 'https://github.com/forqls/portfolio_2023.git',
-    deployUrl: 'https://vplay-ebcf.onrender.com',///////////////////////////////////삽입하기
+    deployUrl: 'https://portfolio-2023-iota-two.vercel.app/',
     myRole: [
       {
         subtitle: 'UI/UX 기반의 웹 구조 설계 및 구현',
