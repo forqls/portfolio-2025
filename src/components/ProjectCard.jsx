@@ -38,9 +38,6 @@ const ProjectCard = ({ project, onCardClick }) => {
         <h3 className="text-xl font-bold mb-[1.2rem] text-gray-800">{title}</h3>
         
         <button 
-          // 👇 ★★★ 바로 여기가 수정된 부분! ★★★
-          // onCardClick은 이미 어떤 프로젝트를 열어야 하는지 알고 있는 완성된 함수야.
-          // 그러니 그냥 onCardClick 자체를 실행시켜주면 돼!
           onClick={onCardClick}
           className="inline-flex items-center px-6 py-2 bg-white text-black font-semibold rounded-full"
         >

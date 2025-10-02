@@ -2,7 +2,7 @@
 import React from 'react';
 import ReactModal from 'react-modal';
 
-// Icon 컴포넌트들은 그대로 유지
+// Icon 컴포넌트
 const CloseIcon = () => (
   <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -33,7 +33,6 @@ const CustomModal = ({ isOpen, onClose, selectedProject }) => {
       ariaHideApp={false}
     >
       <div className="relative w-[80vw] h-[90vh] flex items-start">
-        {/* ▼▼▼ 1. 콘텐츠 박스 구조 변경 ▼▼▼ */}
         <div className="w-full h-full rounded-2xl shadow-xl bg-white overflow-y-auto invisible-scrollbar">
         
           {/* 모달 상단 (헤더) - 스크롤 X */}

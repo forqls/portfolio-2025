@@ -85,7 +85,7 @@ export const projects = [
     tags: ['팀', '사이드'],
     category: 'Team',
     githubUrl: 'https://github.com/forqls/harmonyProj.git',
-    deployUrl: 'https://vplay-ebcf.onrender.com',
+    deployUrl: 'harmonyproj-production.up.railway.app',
     myRole: [
       {
         subtitle: '아이디/비밀번호 찾기 기능 구현',
