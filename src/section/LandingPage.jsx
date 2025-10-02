@@ -5,7 +5,7 @@ import Header from '../components/Header.jsx';
 
 function LandingPage() {
   return (
-    <section 
+    <section id="landing-page"
       className="h-screen bg-transparent"
     >
       <Header />

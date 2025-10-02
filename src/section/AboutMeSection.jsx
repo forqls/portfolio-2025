@@ -61,7 +61,7 @@ const skillIcons = {
 };
 
 
-// ▼▼▼▼▼ 팀원 리뷰 데이터를 배열로 관리합니다. ▼▼▼▼▼
+// 팀원 리뷰 데이터
 const reviews = [
   {
     title : "사회에서 다시 만나고 싶은 분",
@@ -114,7 +114,6 @@ const CloseIcon = () => (
 );
 const ArrowRightIcon = () => (
   <svg width="10" height="18" viewBox="0 0 10 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-    {/* fill 속성을 text-brand-dark와 맞추기 위해 currentColor를 사용합니다. */}
     <path d="M0 1.47109L1.48725 0L9.58796 8.01742C9.71853 8.14589 9.82216 8.29866 9.89288 8.46693C9.96359 8.6352 10 8.81566 10 8.99792C10 9.18017 9.96359 9.36063 9.89288 9.5289C9.82216 9.69718 9.71853 9.84994 9.58796 9.97841L1.48725 18L0.0014019 16.5289L7.60448 9L0 1.47109Z" fill="currentColor"/>
   </svg>
 );
@@ -126,7 +125,7 @@ const AboutMeSection = () => {
   const closeModal = () => setIsModalOpen(false);
 
   return (
-    <section className="relative z-10 min-h-screen px-8 py-24 sm:px-16 lg:px-32 bg-transparent">
+    <section id="about-me" className="relative z-10 min-h-screen px-8 py-24 sm:px-16 lg:px-32 bg-transparent">
       <div className="container mx-auto">
 
         {/* About me & Interview 제목 */}

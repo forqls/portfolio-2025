@@ -21,13 +21,24 @@ function App() {
   const contentRef = useRef(null);
   const bgWrapperRef = useRef(null);
   const { isOpen, closeModal, selectedProject } = useModal();
+  const lenisRef = useRef(null);
+
+  const scrollToSection = (id) => {
+    if (lenisRef.current) {
+      lenisRef.current.scrollTo(id, {
+        duration: 1.2,
+        offset: -80, 
+      });
+    }
+  };
 
   useEffect(() => {
-    // 1. ref가 실제 DOM에 연결된 후에 코드가 실행되도록 보장
     if (scrollWrapperRef.current) {
       const lenis = new Lenis({
         wrapper: scrollWrapperRef.current,
       });
+
+      lenisRef.current = lenis;
 
       function raf(time) {
         lenis.raf(time);
@@ -68,7 +79,7 @@ function App() {
 
         <div ref={scrollWrapperRef} id="scroll-wrapper">
         <div ref={contentRef} className="relative z-10 bg-transparent">
-          <Header />
+          <Header scrollTo={scrollToSection}/>
           <main>
             <LandingPage />
             <AboutMeSection />
