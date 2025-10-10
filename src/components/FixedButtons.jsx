@@ -55,7 +55,7 @@ const FixedButtons = ({ scrollToTop }) => {
         </div>
         {/* 복사 성공 시 보이는 메시지 */}
         {copied && (
-          <div className="absolute bottom-full right-0 mb-2 px-3 py-1.5 bg-green-500 text-white text-sm rounded-md transition-opacity">
+          <div className="absolute bottom-full right-0 mb-2 px-3 py-1.5 bg-grad-purple-end text-white text-sm rounded-md transition-opacity">
             Copied!
           </div>
         )}
