@@ -18,8 +18,8 @@ const UpArrowIcon = () => (
 );
 
 
-const FixedButtons = () => {
-  const myEmail = 'ekdgozz@gmail.com';
+const FixedButtons = ({ scrollToTop }) => {
+  const myEmail = 'dksggyqls@gmail.com';
   const [copied, setCopied] = useState(false);
 
   // 이메일 주소 복사하는 함수
@@ -31,11 +31,10 @@ const FixedButtons = () => {
   };
 
   // 페이지 최상단으로 스크롤하는 함수
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth' // 부드럽게 스크롤
-    });
+  const handleScrollToTop = () => {
+    if (scrollToTop) {
+        scrollToTop('#landing-page'); 
+    }
   };
 
   return (
@@ -64,7 +63,7 @@ const FixedButtons = () => {
 
       {/* --- 2. 위로가기 버튼 --- */}
       <button 
-        onClick={scrollToTop}
+        onClick={handleScrollToTop}
         className="w-14 h-14 bg-white/80 rounded-full flex items-center justify-center shadow-md backdrop-blur-sm hover:scale-110 transition-transform"
       >
         <UpArrowIcon />

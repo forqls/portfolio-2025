@@ -87,12 +87,11 @@ function App() {
             <CareerEducationSection />
             <ThankYouSection />
           </main>
-          <FixedButtons />
+          <FixedButtons scrollToTop={scrollToSection} />
           <Footer />
         </div>
         </div>
 
-      {/* 모달은 스크롤 wrapper의 영향을 받지 않도록 완전히 밖으로 분리 */}
       <CustomModal
         isOpen={isOpen}
         onClose={closeModal}
