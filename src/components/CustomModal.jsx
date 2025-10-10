@@ -127,8 +127,19 @@ const CustomModal = ({ isOpen, onClose, selectedProject }) => {
                     {selectedProject.erdUrl && (
                       <a href={selectedProject.erdUrl} target="_blank" rel="noopener noreferrer" className="text-base text-blue-600 hover:underline">[ERD 설계도]</a>
                     )}
-                    {selectedProject.presentationUrl && (
-                      <a href={selectedProject.presentationUrl} target="_blank" rel="noopener noreferrer" className="text-base text-blue-600 hover:underline">[초기 기획 PPT]</a>
+                   {selectedProject.presentationUrl && (
+                      <a 
+                        href={selectedProject.presentationUrl} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="text-base text-blue-600 hover:underline"
+                      >
+                        {selectedProject.presentationUrl.toLowerCase().endsWith('.pdf') ? (
+                          '[초기 기획 PDF]' 
+                        ) : (
+                          '[초기 기획 PPT]' 
+                        )}
+                      </a>
                     )}
                   </div>
                 </div>

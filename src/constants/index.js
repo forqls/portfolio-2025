@@ -72,7 +72,7 @@ export const projects = [
     ],
     requirementsUrl: 'https://docs.google.com/spreadsheets/d/10CiUG18fGrM2qKxKslMeXjslcGnF8abdkhVaAl-C9Gc/edit?usp=sharing' ,
     erdUrl: '/vplay-erd.png',
-    presentationUrl: 'https://gamma.app/docs/-xijy1tv2cayy1z1', 
+    presentationUrl: '/vplay-presentation.pdf', 
   },
   {
     id: 2,

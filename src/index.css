@@ -3,6 +3,8 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 .custom-scrollbar::-webkit-scrollbar {
   width: 8px; /* 스크롤바의 너비 */
 }
@@ -44,7 +46,6 @@
   z-index: 40; 
 }
 
-/* 모달이 완전히 열렸을 때의 스타일 */
 .ReactModal__Overlay--after-open {
   opacity: 1;
   background-color: rgba(187, 191, 199, 0.6) !important;
@@ -85,9 +86,8 @@ body {
   overflow: hidden;
 }
 
-/* lenis가 제어할 스크롤 컨테이너 스타일 */
 #scroll-wrapper {
   height: 100vh;
-  overflow-y: auto; /* 여기가 진짜 스크롤바를 가짐 */
-  -webkit-overflow-scrolling: touch; /* 모바일에서 부드러운 스크롤 */
+  overflow-y: auto; 
+  -webkit-overflow-scrolling: touch;
 }
