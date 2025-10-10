@@ -230,7 +230,7 @@ export const projects = [
     headcount: '1인 개발',
     gradient: { from: '#827D8B', to: '#C6C1D5' },
     tags: ['솔로', '사이드'],
-    category: 'Solo',
+    category: 'Single',
     githubUrl: 'https://github.com/castleBell0921/dealon.git',
     deployUrl: 'https://portfolio-2025-pearl-two.vercel.app/',
     myRole: [
@@ -361,7 +361,7 @@ export const projects = [
     headcount: '1인 개발',
     gradient: { from: '#83797E', to: '#D2BFBD' },
     tags: ['솔로', '사이드'],
-    category: 'Solo',
+    category: 'Single',
     githubUrl: 'https://github.com/forqls/portfolio_2023.git',
     deployUrl: 'https://portfolio-2023-iota-two.vercel.app/',
     myRole: [
