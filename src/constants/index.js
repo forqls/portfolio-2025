@@ -115,7 +115,7 @@ export const projects = [
       },
       {
         category: 'Database',
-        tools: 'Oracle'
+        tools: 'Oracle (개발), PostgreSQL (배포)'
       },
       {
         category: 'Infra/Etc',
