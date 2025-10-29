@@ -226,7 +226,7 @@ export const projects = [
     thumbnail: '/portfolio_thumbnail.jpg',
     title: '포트폴리오_2025',
     description: '리액트를 활용해 기획부터 UI 구현까지 직접 제작한 포트폴리오 사이트입니다.',
-    period: '2025.06 - 2025.07',
+    period: '2025.06 - 2025.08',
     headcount: '1인 개발',
     gradient: { from: '#827D8B', to: '#C6C1D5' },
     tags: ['솔로', '사이드'],
