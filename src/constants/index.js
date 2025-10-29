@@ -240,7 +240,7 @@ export const projects = [
       },
       {
         subtitle: 'Vite 기반 프론트엔드 빌드 시스템 구축',
-        details: [ 'Vite의 빠른 개발 서버와 빌드 기능을 활용하여 개발 환경을 구축하고, 효율적인 번들링을 설정했어요.']
+        details: [ 'Vite의 빠른 개발 서버와 빌드 기능을 활용하여 개발 환경을 구축하고, 효율적인 번들링을 설정']
       },
       {
         subtitle: 'Tailwind CSS를 활용한 스타일링 및 디자인 시스템 설계',
