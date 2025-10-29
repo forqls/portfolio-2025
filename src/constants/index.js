@@ -88,12 +88,12 @@ export const projects = [
     deployUrl: 'https://harmonyproj-production.up.railway.app/',
     myRole: [
       {
-        subtitle: '아이디/비밀번호 찾기 기능 구현',
-        details: [ '비동기 통신(Ajax)과 이메일(JavaMailSender) 인증을 활용하여 UX를 개선한 계정 찾기 기능 구현', '보안을 고려한 인증 코드 기반의 안전한 비밀번호 재설정 로직 설계' ]
+        subtitle: '파일 업로드 및 정적 리소스 관리 기능 구현',
+        details: [ 'MultipartFile을 이용한 이미지 파일 업로드 기능 구현 및 서버 로컬 스토리지 저장 로직 개발', 'WebMvcConfigurer를 통해 업로드된 파일에 접근 가능한 URL 경로 매핑 설정 (정적 리소스 핸들링)' ]
       },
       {
-        subtitle: '기부 게시판 상세 페이지 조회 기능 구현',
-        details: [ 'Spring MVC 패턴(Controller-Service-Repository)에 따라 게시판 상세 조회 기능 개발', 'DTO를 활용하여 계층 간 데이터를 전달하고, Thymeleaf로 서버에서 동적 페이지 렌더링' ]
+        subtitle: '외부 서비스 연동 (이메일 인증)',
+        details: [ '비동기 통신(Ajax)을 적용하여 인증 프로세스 중 사용자 경험(UX) 개선', 'JavaMailSender를 활용하여 회원가입 및 아이디/비밀번호 찾기를 위한 이메일 인증 시스템 구현' ]
       },
       {
         subtitle: '메인 페이지 기능 개발',
