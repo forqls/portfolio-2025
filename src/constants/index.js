@@ -288,7 +288,7 @@ export const projects = [
     period: '2023.11 - 2023.12',
     headcount: '2인 (기획, 개발)',
     gradient: { from: '#364518', to: '#848F3E' },
-    tags: ['팀', '워드프레스'],
+    tags: ['팀', '반응형'],
     category: 'Team',
     deployUrl: 'https://naturelica.co.kr/',
     myRole: [
