@@ -48,7 +48,7 @@ const CustomModal = ({ isOpen, onClose, selectedProject }) => {
             </div>
           </div>
 
-          {/* ▼▼▼ 2. 스크롤이 필요한 콘텐츠 영역 ▼▼▼ */}
+          {/* 스크롤이 필요한 콘텐츠 영역 */}
           <div className="flex-grow overflow-y-auto invisible-scrollbar">
             <div className="space-y-12 text-left p-12 md:p-16 lg:p-20">
               {/* 주요 역할 섹션 */}

@@ -176,13 +176,13 @@ const AboutMeSection = () => {
           {/* 오른쪽 컬럼 */}
           <div className="flex flex-col space-y-[1.375rem]">
             
-            {/* 1. 프로필 이미지 div: backdrop-blur 추가 */}
+            {/* 프로필 이미지 */}
             <div className="flex items-end justify-center bg-profile-image-bg/80 backdrop-blur-[20px] border-[20px] border-profile-border rounded-[15px] aspect-square">
-              {/* 이미지 너비를 w-2/3로 수정 */}
+            
               <img src="/profile-image.png" alt="안효빈 프로필 사진" className="w-2/3" />
             </div>
 
-            {/* 2. 해시태그 div: backdrop-blur 추가 */}
+            {/* 해시태그 */}
             <div className="bg-profile-image-bg/80 backdrop-blur-[20px] border border-profile-border rounded-[15px] p-[2.5rem] px-[2.1875rem]">
               <div className="flex justify-between">
                 {keywords.map((keyword) => (
@@ -191,7 +191,7 @@ const AboutMeSection = () => {
               </div>
             </div>
             
-            {/* 3. 자기소개 div: backdrop-blur 추가 */}
+            {/* 자기소개 */}
             <div className="bg-profile-image-bg/80 backdrop-blur-[20px] border border-profile-border rounded-[15px] p-[2.5rem] px-[2.1875rem] text-left">
               <p className="text-lg font-light leading-relaxed text-brand-dark">
                 <span className="font-semibold">작은 차이</span>를 만드는 개발자, <span className="font-semibold">안효빈</span>입니다.
