@@ -71,34 +71,45 @@ function App() {
   }, []); 
 
   return (
-    <>
-        <div ref={bgWrapperRef} className="fixed top-0 left-0 w-full z-0 pointer-events-none bg-[#E9EDF5]">
-          <img src="/background.png" className="w-full h-auto object-cover" alt="" />
-          <img src="/background_footer.png" className="w-full h-auto object-cover" alt="" />
-        </div>
+		<>
+			<div
+				ref={bgWrapperRef}
+				className="fixed top-0 left-0 w-full z-0 pointer-events-none bg-[#E9EDF5]"
+			>
+				<img
+					src="/background.png"
+					className="w-full h-auto object-cover"
+					alt=""
+				/>
+				<img
+					src="/background_footer.png"
+					className="w-full h-auto object-cover"
+					alt=""
+				/>
+			</div>
 
-        <div ref={scrollWrapperRef} id="scroll-wrapper">
-        <div ref={contentRef} className="relative z-10 bg-transparent">
-          <Header scrollTo={scrollToSection}/>
-          <main>
-            <LandingPage />
-            <AboutMeSection />
-            <ProjectSection />
-            <CareerEducationSection />
-            <ThankYouSection />
-          </main>
-          <FixedButtons scrollToTop={scrollToSection} />
-          <Footer />
-        </div>
-        </div>
-
-      <CustomModal
-        isOpen={isOpen}
-        onClose={closeModal}
-        selectedProject={selectedProject}
-      />
-    </>
-  );
+			<div ref={scrollWrapperRef} id="scroll-wrapper">
+				<div ref={contentRef} className="relative z-10 bg-transparent">
+					<Header scrollTo={scrollToSection} />
+					<main>
+						<LandingPage />
+						<AboutMeSection />
+						<ProjectSection />
+						<CareerEducationSection />
+						<ThankYouSection />
+					</main>
+					<FixedButtons scrollToTop={scrollToSection} />
+					<Footer />
+				</div>
+			</div>
+			<RevealOverlay />
+			<CustomModal
+				isOpen={isOpen}
+				onClose={closeModal}
+				selectedProject={selectedProject}
+			/>
+		</>
+	);
 }
 
 export default App;
