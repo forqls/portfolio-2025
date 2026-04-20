@@ -50,8 +50,8 @@ function RevealOverlay() {
 
 			const cx = state.current === "idle" ? lerpX.current : originX.current;
 			const cy = state.current === "idle" ? lerpY.current : originY.current;
-      const BASE_R = 72;
-      let r = BASE_R;;
+			const BASE_R = 72;
+			let r = BASE_R;
 
 			if (state.current === "expanding") {
 				if (!expandStart.current) expandStart.current = ts;
@@ -73,7 +73,7 @@ function RevealOverlay() {
 				r = BASE_R * (1 + 0.04 * Math.sin(ts * 0.004));
 			}
 
-			ctx.fillStyle = "#E9EDF5"; 
+			ctx.fillStyle = "#E9EDF5";
 			ctx.fillRect(0, 0, W, H);
 
 			ctx.globalCompositeOperation = "destination-out";
@@ -119,7 +119,7 @@ function RevealOverlay() {
 				inset: 0,
 				width: "100%",
 				height: "100%",
-				zIndex: 9999, 
+				zIndex: 9999,
 				pointerEvents: "none",
 			}}
 		/>

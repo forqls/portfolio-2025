@@ -15,6 +15,8 @@ import FixedButtons from './components/FixedButtons.jsx';
 import Footer from './components/Footer.jsx';
 import { useModal } from './components/ModalContext';
 import CustomModal from './components/CustomModal';
+import RevealOverlay from "./components/RevealOverlay.jsx";
+
 
 function App() {
   const scrollWrapperRef = useRef(null);
